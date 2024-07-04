@@ -160,6 +160,28 @@
           </tr>
       </table>
   </div>
+
+  <body1>
+   
+    <div class="wrapper">
+        <input type="text" id="fromName" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <textarea id="message" placeholder="Message"></textarea>
+        <button onclick="sendEmail()">Send</button>
+    </div>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+            publicKey: "PhLjHaJX7JeLNSXPd",
+        });
+        })();
+    </script>
+    <script src="./code.js"></script>
+</body1>
   </div>
   <footer class="under">
     <p>&copy; 2023 AUTODIAGNOSTIC</p>

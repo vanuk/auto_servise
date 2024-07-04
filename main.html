@@ -54,7 +54,6 @@
           </nav>
         </div>
     </header>
-  <main>
     <div class="container">
       <div class="img">
         <img src="photos/ssww.jpg" alt="1">
@@ -65,6 +64,7 @@
         <button class="button-32" role="button">Більше</button>
       </div>
     </div>
+  <main>
   <div class="services">
     <div class="service" style="background-image: url('image1.jpg');">
       <img src="name.png" alt="Description of the image">
@@ -160,16 +160,20 @@
           </tr>
       </table>
   </div>
-
-  <body1>
-   
+  </div>
+  <div class="body1">
     <div class="wrapper">
+      <div class="one">
         <input type="text" id="fromName" placeholder="Name">
+      </div>
+      <div class="two">
         <input type="email" id="email" placeholder="Email">
-        <textarea id="message" placeholder="Message"></textarea>
-        <button onclick="sendEmail()">Send</button>
+      </div>
+      <div class="three">
+        <input id="message"></input>
+      </div>
+        <button class="four" onclick="sendEmail()">Send</button>
     </div>
-
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
@@ -181,7 +185,6 @@
         })();
     </script>
     <script src="./code.js"></script>
-</body1>
   </div>
   <footer class="under">
     <p>&copy; 2023 AUTODIAGNOSTIC</p>

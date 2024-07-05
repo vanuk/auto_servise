@@ -22,7 +22,7 @@
               </li>
               <li><a href="#">Прайс</a>
                 <ul>
-                  <li><a href="#">Прайс-лист на послуги</a></li>
+                  <li><a href="price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
                   <li><a href="#">Спеціальні пропозиції</a></li>
                 </ul>
               </li>
@@ -46,7 +46,7 @@
               </li>
               <li><a href="#">Контакти</a>
                 <ul>
-                  <li><a href="#">Контактна інформація</a></li>
+                  <li><a href="sended/email.html" id="sended">Контактна інформація</a></li>
                   <li><a href="#">Форма зворотного зв'язку</a></li>
                 </ul>
               </li>
@@ -185,6 +185,18 @@
         })();
     </script>
     <script src="./code.js"></script>
+    <script>
+      document.getElementById('price-list-link').addEventListener('click', function(event) {
+          event.preventDefault(); // Запобігає стандартній поведінці посилання
+          window.location.href = '/price/price.html'; // Перехід на іншу сторінку
+      });
+  </script>
+  <script>
+    document.getElementById('sended').addEventListener('click', function(event) {
+        event.preventDefault(); // Запобігає стандартній поведінці посилання
+        window.location.href = '/sended/email.html'; // Перехід на іншу сторінку
+    });
+</script>
   </div>
   <footer class="under">
     <p>&copy; 2023 AUTODIAGNOSTIC</p>

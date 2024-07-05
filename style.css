@@ -43,7 +43,7 @@ main {
 }
 
 
-/* CSS */
+/* кнопка під лого 46 - 71 я в ах*є*/
 .button-32 {
   background-color: #fff000;
   border-radius: 12px;
@@ -85,7 +85,7 @@ main {
 .img {
     opacity: .5;
 }
-
+/* робить нечіпати!!!!!! 88-149+- */
 h1, h2 {
     margin-top: 0;
 }
@@ -147,9 +147,11 @@ nav li ul li a {
 nav li ul li a:hover {
   color: #666;
 }
+/* переробка 150-153*/
 footer p {
     margin: 0;
 }
+/* грід послуг тут баг є!!! 154-185 */
 .services {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -158,7 +160,7 @@ footer p {
   }
   .service {
     position: relative;
-    padding: 2%;
+    padding: 15%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: auto;
   }
@@ -168,12 +170,12 @@ footer p {
   }
   
   .service p {
-    margin-bottom: 10px;
+    margin-bottom: 0%;
   }
   
   .service a {
     display: block;
-    margin-top: auto;
+    margin-top: 0%;
   }
 
 img {
@@ -181,7 +183,7 @@ img {
     height: 50%;
     padding-bottom: 2%;
   }
-
+/* нижня полоска переробка тре*/
   footer {
     background-color: #333;
     color: #fff;
@@ -194,6 +196,7 @@ img {
     left: 0;
     z-index: 10;
 }
+/* хз шото тре розібратися вроді ніхт неробить 199 - 216*/
 @media (max-width: 768px) {
     main {
         flex-direction: column;
@@ -213,7 +216,8 @@ img {
 }
 
 /*PRICING TABLE*/
-
+/* це капец ( * * )
+              ---   це перенос на іншу форму 220-325 серйозно?*/
 .pricing {
   background-color: #000;
 }
@@ -320,6 +324,7 @@ ul li:before {
     color: #337ab7;
 }
 
+/* forma email */
 .wrapper {
     display: grid;
     /*grid-template-columns: repeat(3, 1fr);

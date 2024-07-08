@@ -28,7 +28,7 @@
               </li>
               <li><a href="#">Про нас</a>
                 <ul>
-                  <li><a href="#">Історія компанії</a></li>
+                  <li><a href="about/about.html" id="about">Історія компанії</a></li>
                   <li><a href="#">Наша команда</a></li>
                 </ul>
               </li>
@@ -196,6 +196,12 @@
         event.preventDefault(); // Запобігає стандартній поведінці посилання
         window.location.href = '/sended/email.html'; // Перехід на іншу сторінку
     });
+</script>
+<script>
+  document.getElementById('about').addEventListener('click', function(event) {
+      event.preventDefault(); // Запобігає стандартній поведінці посилання
+      window.location.href = '/about/about.html'; // Перехід на іншу сторінку
+  });
 </script>
   </div>
   <footer class="under">

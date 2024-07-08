@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="shop_style.css">
+</head>
+<body>
+    <header>
+        <h1>Ласкаво просимо до нашого магазину</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Головна</a></li>
+            <li><a href="#">Каталог</a></li>
+            <li><a href="#">Про нас</a></li>
+            <li><a href="#">Контакти</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Наші продукти</h2>
+        <div class="product">
+            <img src="product.jpg" alt="Назва товару">
+            <h3>Назва товару</h3>
+            <p>Опис товару. Цей товар є одним з найкращих у нашому асортименті.</p>
+            <p class="price">Ціна: 500 грн</p>
+            <button onclick="showOrderForm()">Купити</button>
+        </div>
+
+        <div id="order-form" class="hidden">
+            <h2>Оформлення замовлення</h2>
+            <form onsubmit="submitOrder(event)">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="address">Адреса:</label>
+                <input type="text" id="address" name="address" required>
+                
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <button type="submit">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Магазин. Всі права захищені.</p>
+    </footer>
+    <script src="shop_code.js"></script>
+</body>
+</html>>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart_style.css">
+</head>
+<body>
+    <header>
+        <h1>Ваш кошик</h1>
+    </header>
+    <main>
+        <div id="cart-items"></div>
+        <button onclick="showOrderForm()">Оформити замовлення</button>
+
+        <div id="order-form" class="hidden">
+            <h2>Оформлення замовлення</h2>
+            <form onsubmit="submitOrder(event)">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="address">Адреса:</label>
+                <input type="text" id="address" name="address" required>
+                
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <button type="submit">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Магазин. Всі права захищені.</p>
+    </footer>
+    <script src="cart_code.js"></script>
+</body>
+</html>

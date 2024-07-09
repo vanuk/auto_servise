@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <header>
+        <h1>Адміністрування товарів</h1>
+        
+    </header>
+    <nav>
+        <ul>
+            <li><a href="shop/shop.html" id="shop">Кош2ик (<span id="cart-count">0</span>)</a></li> <!-- Оновлене посилання -->
+        </ul>
+    </nav>
+    <main>
+        
+        <h2>Додати новий товар</h2>
+        <form id="add-product-form">
+            <label for="product-name">Назва товару:</label>
+            <input type="text" id="product-name" required>
+            
+            <label for="product-price">Ціна товару:</label>
+            <input type="number" id="product-price" min="0" step="any" required>
+            
+            <button type="submit">Додати товар</button>
+            <h2>Список товарів</h2>
+            <ul id="product-list">
+                <!-- Тут будуть відображатися завантажені товари -->
+            </ul>
+                
+        </form>
+    </main>
+    <script>
+        document.getElementById('shop').addEventListener('click', function(event) {
+            event.preventDefault(); // Запобігає стандартній поведінці посилання
+            window.location.href = '/shop/shop.html'; // Перехід на іншу сторінку
+        });
+    </script>
+    
+    <script src="admin_code.js"></script>
+</body>
+</html>

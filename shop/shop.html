@@ -16,6 +16,7 @@
             <li><a href="#">Каталог</a></li>
             <li><a href="#">Про нас</a></li>
             <li><a href="#">Контакти</a></li>
+            <li><a href="cart/cart.html" id="cart-count1">Кошик (<span id="cart-count">0</span>)</a></li> <!-- Оновлене посилання -->
         </ul>
     </nav>
     <main>
@@ -25,28 +26,24 @@
             <h3>Назва товару</h3>
             <p>Опис товару. Цей товар є одним з найкращих у нашому асортименті.</p>
             <p class="price">Ціна: 500 грн</p>
-            <button onclick="showOrderForm()">Купити</button>
-        </div>
+            <button onclick="addToCart('Назва товару', 500)">Купити</button>
 
-        <div id="order-form" class="hidden">
-            <h2>Оформлення замовлення</h2>
-            <form onsubmit="submitOrder(event)">
-                <label for="name">Ім'я:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="address">Адреса:</label>
-                <input type="text" id="address" name="address" required>
-                
-                <label for="phone">Телефон:</label>
-                <input type="tel" id="phone" name="phone" required>
-                
-                <button type="submit">Підтвердити замовлення</button>
-            </form>
+            
+                <h2>Наші продукти</h2>
+                <div id="product-list">
+                    <!-- Тут будуть відображатися товари -->
+              
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Магазин. Всі права захищені.</p>
     </footer>
+    <script>
+        document.getElementById('cart-count1').addEventListener('click', function(event) {
+            event.preventDefault(); // Запобігає стандартній поведінці посилання
+            window.location.href = '/cart/cart.html'; // Перехід на іншу сторінку
+        });
+    </script>
     <script src="shop_code.js"></script>
 </body>
-</html>>
+</html>

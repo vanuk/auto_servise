@@ -1,23 +1,41 @@
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Сторінка завантажена і готова до використання');
+    console.log('Сторінка магазину завантажена і готова до використання');
+    loadProducts(); // Завантажуємо товари при завантаженні сторінки
 });
 
-function showOrderForm() {
-    document.getElementById('order-form').classList.remove('hidden');
+function loadProducts() {
+    const productListContainer = document.getElementById('product-list');
+    productListContainer.innerHTML = ''; // Очистимо контейнер перед завантаженням
+
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+
+    products.forEach((product, index) => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.innerHTML = `
+            <img src="product.jpg" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Ціна: ${product.price} грн</p>
+            <button onclick="addToCart('${product.name}', ${product.price})">Купити</button>
+        `;
+        productListContainer.appendChild(productElement);
+    });
 }
 
-function submitOrder(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const address = document.getElementById('address').value;
-    const phone = document.getElementById('phone').value;
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    if (name && address && phone) {
-        alert('Дякуємо за замовлення, ' + name + '!\nВаше замовлення буде доставлено за адресою: ' + address);
-        document.getElementById('order-form').reset();
-        document.getElementById('order-form').classList.add('hidden');
-    } else {
-        alert('Будь ласка, заповніть всі поля форми.');
-    }
+function addToCart(productName, productPrice) {
+    const product = { name: productName, price: productPrice };
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
 }
+
+function updateCartCount() {
+    document.getElementById('cart-count').textContent = cart.length;
+}
+

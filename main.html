@@ -8,7 +8,9 @@
 </head>
 <body>
     <header>
-        <h1 class="treba">«ЯК ТРЕБА»</h1>
+        <div class="yaktreba">
+          <img src="/photos/YakTreba.png" alt="">
+        </div>
         <div>
           <nav>
             <ul>
@@ -112,98 +114,7 @@
       </ul>
     </div>
   </main>
-  <div class="pricing">
-    <div class="pricing-table">
-      <h2>Pricing Table</h2>
-      <table>
-          <tr>
-              <th>Service</th>
-              <th>Price</th>
-              <th>Description</th>
-          </tr>
-          <tr>
-              <td>Заміна оливи</td>
-              <td>$50 per service</td>
-              <td>
-                  <p>We replace your old oil with fresh, high-quality oil to keep your engine running smoothly.</p>
-                  <ul>
-                      <li>Oil</li>
-                      <li>Filter</li>
-                      <li>Checkup</li>
-                  </ul>
-                  <button class="popular-btn">Popular</button>
-              </td>
-          </tr>
-          <tr>
-              <td>Starter Repair Service</td>
-              <td>$120 per service</td>
-              <td>
-                  <p>Our experts will repair or replace faulty starters to ensure your car starts reliably every time.</p>
-                  <ul>
-                      <li>Diagnostic</li>
-                      <li>Repair</li>
-                      <li>Replacement</li>
-                  </ul>
-              </td>
-          </tr>
-          <tr>
-              <td>Radiator Replacement</td>
-              <td>$200 per service</td>
-              <td>
-                  <p>We replace your damaged radiator to prevent overheating and improve your car's cooling system.</p>
-                  <ul>
-                      <li>Radiator</li>
-                      <li>Coolant</li>
-                      <li>Installation</li>
-                  </ul>
-              </td>
-          </tr>
-      </table>
-  </div>
-  </div>
-  <div class="body1">
-    <div class="wrapper">
-      <div class="one">
-        <input type="text" id="fromName" placeholder="Name">
-      </div>
-      <div class="two">
-        <input type="email" id="email" placeholder="Email">
-      </div>
-      <div class="three">
-        <input id="message"></input>
-      </div>
-        <button class="four" onclick="sendEmail()">Send</button>
-    </div>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init({
-            publicKey: "PhLjHaJX7JeLNSXPd",
-        });
-        })();
-    </script>
-    <script src="./code.js"></script>
-    <script>
-      document.getElementById('price-list-link').addEventListener('click', function(event) {
-          event.preventDefault(); // Запобігає стандартній поведінці посилання
-          window.location.href = '/price/price.html'; // Перехід на іншу сторінку
-      });
-  </script>
-  <script>
-    document.getElementById('sended').addEventListener('click', function(event) {
-        event.preventDefault(); // Запобігає стандартній поведінці посилання
-        window.location.href = '/sended/email.html'; // Перехід на іншу сторінку
-    });
-</script>
-<script>
-  document.getElementById('about').addEventListener('click', function(event) {
-      event.preventDefault(); // Запобігає стандартній поведінці посилання
-      window.location.href = '/about/about.html'; // Перехід на іншу сторінку
-  });
-</script>
-  </div>
+  
   <footer class="under">
     <p>&copy; 2023 AUTODIAGNOSTIC</p>
   </footer>

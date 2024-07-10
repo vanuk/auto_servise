@@ -1,9 +1,11 @@
+
+
 body {  
-    font-family: 'Impact';
-    font-size: 22px;
-    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700; /* Bold */
     padding: 0;
 }
+
 
 header {
     position: absolute;

@@ -3,44 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Дані з бази даних</title>
     <link rel="stylesheet" href="admin_style.css">
 </head>
 <body>
-    <header>
-        <h1>Адміністрування товарів</h1>
+    <h1>Адміністративна панель</h1>
+    <div id="carList"></div>
+    <form id="addCarForm">
+        <label for="name">Назва авто:</label><br>
+        <input type="text" id="name" name="name"><br><br>
         
-    </header>
-    <nav>
-        <ul>
-            <li><a href="shop/shop.html" id="shop">Кош2ик (<span id="cart-count">0</span>)</a></li> <!-- Оновлене посилання -->
-        </ul>
-    </nav>
-    <main>
+        <label for="price">Ціна:</label><br>
+        <input type="number" id="price" name="price"><br><br>
         
-        <h2>Додати новий товар</h2>
-        <form id="add-product-form">
-            <label for="product-name">Назва товару:</label>
-            <input type="text" id="product-name" required>
-            
-            <label for="product-price">Ціна товару:</label>
-            <input type="number" id="product-price" min="0" step="any" required>
-            
-            <button type="submit">Додати товар</button>
-            <h2>Список товарів</h2>
-            <ul id="product-list">
-                <!-- Тут будуть відображатися завантажені товари -->
-            </ul>
-                
-        </form>
-    </main>
+        <button type="submit">Додати авто</button>
+    </form>
+
     <script>
-        document.getElementById('shop').addEventListener('click', function(event) {
-            event.preventDefault(); // Запобігає стандартній поведінці посилання
-            window.location.href = '/shop/shop.html'; // Перехід на іншу сторінку
-        });
-    </script>
+        fetch('http://localhost:3000/admin/data')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const carListElement = document.getElementById('carList');
+            carListElement.innerHTML = '<h2>Список авто:</h2>';
+            const ul = document.createElement('ul');
     
-    <script src="admin_code.js"></script>
+            data.forEach(car => {
+                const li = document.createElement('li');
+                li.textContent = `${car.name} - ${car.price}`;
+                ul.appendChild(li);
+            });
+    
+            carListElement.appendChild(ul);
+        })
+        .catch(error => {
+            console.error('Помилка отримання даних:', error);
+        });
+
+        document.getElementById('addCarForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const carData = {
+                name: formData.get('name'),
+                price: formData.get('price')
+            };
+
+            fetch('http://localhost:3000/admin/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(carData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Додано нове авто:', data);
+                alert('Додано нове авто!');
+            })
+            .catch(error => {
+                console.error('Помилка додавання авто:', error);
+                alert('Помилка додавання авто!');
+            });
+        });
+    </script> <!-- Підключення JavaScript коду -->
 </body>
 </html>

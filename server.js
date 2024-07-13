@@ -5,10 +5,8 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Додавання CORS middleware
 app.use(cors());
 
-// Налаштування підключення до бази даних
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -16,7 +14,6 @@ const connection = mysql.createConnection({
     password: '1801'
 });
 
-// Підключення до бази даних
 connection.connect(err => {
     if (err) {
         console.error('Помилка підключення до бази даних: ' + err.stack);
@@ -27,36 +24,32 @@ connection.connect(err => {
 
 // Маршрут для відправлення даних про авто на сторінку admin.html
 app.get('/admin/data', (req, res) => {
-    // SQL-запит для вибору даних (приклад)
     const sql = 'SELECT * FROM avto';
 
-    // Виконання запиту до бази даних
     connection.query(sql, (err, results) => {
         if (err) {
             res.status(500).json({ error: 'Помилка отримання даних з бази даних' });
             return;
         }
 
-        // Відправлення результатів як JSON
         res.json(results);
     });
 });
-// Маршрут для відправлення даних про авто на сторінку admin.html
+// Маршрут для відправлення даних про авто на сторінку shop.html
 app.get('/shop/data', (req, res) => {
-    // SQL-запит для вибору даних (приклад)
+
     const sql = 'SELECT * FROM avto';
 
-    // Виконання запиту до бази даних
     connection.query(sql, (err, results) => {
         if (err) {
             res.status(500).json({ error: 'Помилка отримання даних з бази даних' });
             return;
         }
 
-        // Відправлення результатів як JSON
         res.json(results);
     });
 });
+
 app.delete('/admin/data/:name', (req, res) => {
     const { name } = req.params;
     const sql = 'DELETE FROM avto WHERE name = ?';
@@ -72,6 +65,7 @@ app.delete('/admin/data/:name', (req, res) => {
         res.json({ message: `Авто з іменем "${name}" було успішно видалено` });
     });
 });
+
 app.post('/admin/data', express.json(), (req, res) => {
     const { name, price } = req.body;
     const sql = 'INSERT INTO avto (name, price) VALUES (?, ?)';
@@ -87,7 +81,6 @@ app.post('/admin/data', express.json(), (req, res) => {
     });
 });
 
-// Запуск сервера
 app.listen(port, () => {
     console.log(`Сервер запущено на http://localhost:${port}`);
 });

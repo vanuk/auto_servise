@@ -2,6 +2,7 @@ document.getElementById('cart-count2').addEventListener('click', function(event)
     event.preventDefault();
     window.location.href = '/shop/shop.html';
 });
+//підключення
 fetch('http://localhost:3000/admin/data')
         .then(response => {
             if (!response.ok) {
@@ -25,7 +26,7 @@ fetch('http://localhost:3000/admin/data')
         .catch(error => {
             console.error('Помилка отримання даних:', error);
         });
-
+        //додання товару
         document.getElementById('addCarForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -57,6 +58,7 @@ fetch('http://localhost:3000/admin/data')
                 alert('Помилка додавання авто!');
             });
         });
+        // видалення товару
         function deleteCar(name) {
             fetch(`http://localhost:3000/admin/data/${encodeURIComponent(name)}`, {
                 method: 'DELETE'
@@ -78,7 +80,7 @@ fetch('http://localhost:3000/admin/data')
             });
         }
 
-        // Функція для отримання та відображення списку авто
+        // Функція для отримання та відображення списку товару admin
         function fetchCarList() {
             fetch('http://localhost:3000/admin/data')
             .then(response => {
@@ -116,28 +118,3 @@ fetch('http://localhost:3000/admin/data')
 
         // Виклик функції для отримання та відображення списку авто при завантаженні сторінки
         fetchCarList();
-
-        // Обробник події для форми додавання авто
-      
-
-        // Обробник події для кнопки видалення всіх даних
-        document.getElementById('deleteAllButton').addEventListener('click', function() {
-            fetch('http://localhost:3000/admin/data', {
-                method: 'DELETE'
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Усі дані успішно видалено:', data);
-                alert('Усі дані успішно видалено!');
-                fetchCarList(); // Оновити список авто на сторінці
-            })
-            .catch(error => {
-                console.error('Помилка видалення даних:', error);
-                alert('Помилка видалення даних!');
-            });
-        });

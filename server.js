@@ -41,7 +41,37 @@ app.get('/admin/data', (req, res) => {
         res.json(results);
     });
 });
+// Маршрут для відправлення даних про авто на сторінку admin.html
+app.get('/shop/data', (req, res) => {
+    // SQL-запит для вибору даних (приклад)
+    const sql = 'SELECT * FROM avto';
 
+    // Виконання запиту до бази даних
+    connection.query(sql, (err, results) => {
+        if (err) {
+            res.status(500).json({ error: 'Помилка отримання даних з бази даних' });
+            return;
+        }
+
+        // Відправлення результатів як JSON
+        res.json(results);
+    });
+});
+app.delete('/admin/data/:name', (req, res) => {
+    const { name } = req.params;
+    const sql = 'DELETE FROM avto WHERE name = ?';
+
+    connection.query(sql, name, (err, result) => {
+        if (err) {
+            console.error('Помилка видалення даних: ' + err.stack);
+            res.status(500).json({ error: 'Помилка видалення даних' });
+            return;
+        }
+
+        console.log(`Авто з іменем "${name}" було успішно видалено`);
+        res.json({ message: `Авто з іменем "${name}" було успішно видалено` });
+    });
+});
 app.post('/admin/data', express.json(), (req, res) => {
     const { name, price } = req.body;
     const sql = 'INSERT INTO avto (name, price) VALUES (?, ?)';

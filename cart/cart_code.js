@@ -1,57 +1,89 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Сторінка кошика завантажена');
-    loadCartItems();
+    console.log('Сторінка кошика завантажена і готова до використання');
+    displayCartItems();
 });
 
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function loadCartItems() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
+function displayCartItems() {
+    const cartItemsElement = document.getElementById('cart-items');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Ваш кошик порожній.</p>';
-    } else {
-        cart.forEach((item, index) => {
-            const itemElement = document.createElement('div');
-            itemElement.classList.add('cart-item');
-            itemElement.innerHTML = `
-                <p>${item.name} - ${item.price} грн</p>
-                <button onclick="removeFromCart(${index})">Видалити</button>
-            `;
-            cartItemsContainer.appendChild(itemElement);
+        cartItemsElement.innerHTML = '<p>Ваш кошик порожній.</p>';
+        return;
+    }
+
+    cartItemsElement.innerHTML = '';
+    cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart-item');
+
+        const itemName = document.createElement('h3');
+        itemName.textContent = item.name;
+
+        const itemQuantity = document.createElement('p');
+        itemQuantity.textContent = `Кількість: ${item.quantity}`;
+
+        const itemPrice = document.createElement('p');
+        itemPrice.textContent = `Ціна: ${item.price} грн`;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Видалити';
+        removeButton.addEventListener('click', function() {
+            removeFromCart(item.name); // Видалення всіх товарів з таким ім'ям
         });
+
+        const decreaseButton = document.createElement('button');
+        decreaseButton.textContent = 'Зменшити кількість';
+        decreaseButton.addEventListener('click', function() {
+            decrementQuantity(item.name); // Зменшення кількості товару
+        });
+
+        itemDiv.appendChild(itemName);
+        itemDiv.appendChild(itemQuantity);
+        itemDiv.appendChild(itemPrice);
+        itemDiv.appendChild(removeButton);
+        itemDiv.appendChild(decreaseButton);
+        cartItemsElement.appendChild(itemDiv);
+    });
+}
+
+function removeFromCart(name) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Зберігаємо тільки ті елементи, які не мають таке ім'я
+    cart = cart.filter(item => item.name !== name);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Оновлюємо локальне сховище
+    displayCartItems(); // Оновлюємо відображення кошика
+}
+
+function decrementQuantity(name) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const item = cart.find(item => item.name === name);
+    if (item && item.quantity > 0) {
+        item.quantity -= 1;
+        localStorage.setItem('cart', JSON.stringify(cart)); // Оновлюємо локальне сховище
+        displayCartItems(); // Оновлюємо відображення кошика
+    }
+    if (item && item.quantity == 0) {
+        removeFromCart(name) // Оновлюємо локальне сховище
+        displayCartItems(); // Оновлюємо відображення кошика
     }
 }
 
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    loadCartItems();
-}
-
 function showOrderForm() {
-    document.getElementById('cart-items').classList.add('hidden');
     document.getElementById('order-form').classList.remove('hidden');
 }
 
 function submitOrder(event) {
     event.preventDefault();
 
+    // Отримуємо дані з форми
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
     const phone = document.getElementById('phone').value;
 
-    if (name && address && phone) {
-        alert('Дякуємо за замовлення, ' + name + '!\nВаше замовлення буде доставлено за адресою: ' + address);
-        cart = [];
-        localStorage.setItem('cart', JSON.stringify(cart));
-        loadCartItems();
-        document.getElementById('order-form').reset();
-        document.getElementById('order-form').classList.add('hidden');
-        document.getElementById('cart-items').classList.remove('hidden');
-        updateCartCount();
-    } else {
-        alert('Будь ласка, заповніть всі поля форми.');
-    }
+    // Додайте тут логіку для обробки замовлення
+
+    alert('Замовлення підтверджене');
+    localStorage.removeItem('cart'); // Очищаємо кошик після замовлення
+    displayCartItems(); // Оновлюємо відображення кошика
 }

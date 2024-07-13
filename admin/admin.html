@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>Адміністративна панель</h1>
+   
+    <a href="./shop/shop.html" id="cart-count2">Кошик</a>
     <div id="carList"></div>
     <form id="addCarForm">
         <label for="name">Назва авто:</label><br>
@@ -18,63 +20,6 @@
         
         <button type="submit">Додати авто</button>
     </form>
-
-    <script>
-        fetch('http://localhost:3000/admin/data')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const carListElement = document.getElementById('carList');
-            carListElement.innerHTML = '<h2>Список авто:</h2>';
-            const ul = document.createElement('ul');
-    
-            data.forEach(car => {
-                const li = document.createElement('li');
-                li.textContent = `${car.name} - ${car.price}`;
-                ul.appendChild(li);
-            });
-    
-            carListElement.appendChild(ul);
-        })
-        .catch(error => {
-            console.error('Помилка отримання даних:', error);
-        });
-
-        document.getElementById('addCarForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(this);
-            const carData = {
-                name: formData.get('name'),
-                price: formData.get('price')
-            };
-
-            fetch('http://localhost:3000/admin/data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(carData)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Додано нове авто:', data);
-                alert('Додано нове авто!');
-            })
-            .catch(error => {
-                console.error('Помилка додавання авто:', error);
-                alert('Помилка додавання авто!');
-            });
-        });
-    </script> <!-- Підключення JavaScript коду -->
+    <script src="admin_code.js"></script>
 </body>
 </html>

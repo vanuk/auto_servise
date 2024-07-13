@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Наш магазин</title>
     <link rel="stylesheet" href="shop_style.css">
 </head>
 <body>
@@ -12,38 +12,22 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#">Головна</a></li>
+            <li><a href="main.html" id="main1">Головна</a></li>
             <li><a href="#">Каталог</a></li>
             <li><a href="#">Про нас</a></li>
             <li><a href="#">Контакти</a></li>
-            <li><a href="cart/cart.html" id="cart-count1">Кошик (<span id="cart-count">0</span>)</a></li> <!-- Оновлене посилання -->
+            <li><a href="cart/cart.html" id="cart-count1">Кошик (<span id="cart-count">0</span>)</a></li>
         </ul>
     </nav>
     <main>
         <h2>Наші продукти</h2>
-        <div class="product">
-            <img src="product.jpg" alt="Назва товару">
-            <h3>Назва товару</h3>
-            <p>Опис товару. Цей товар є одним з найкращих у нашому асортименті.</p>
-            <p class="price">Ціна: 500 грн</p>
-            <button onclick="addToCart('Назва товару', 500)">Купити</button>
-
-            
-                <h2>Наші продукти</h2>
-                <div id="product-list">
-                    <!-- Тут будуть відображатися товари -->
-              
+        <div class="grid" id="product-list">
+            <!-- Тут будуть відображатися товари -->
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Магазин. Всі права захищені.</p>
     </footer>
-    <script>
-        document.getElementById('cart-count1').addEventListener('click', function(event) {
-            event.preventDefault(); // Запобігає стандартній поведінці посилання
-            window.location.href = '/cart/cart.html'; // Перехід на іншу сторінку
-        });
-    </script>
     <script src="shop_code.js"></script>
 </body>
 </html>

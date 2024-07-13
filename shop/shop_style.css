@@ -41,8 +41,11 @@ nav ul li a:hover {
     color: #000;
 }
 
-main {
+.grid {
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 товари в одному ряду */
+    gap: 20px;
 }
 
 .product {
@@ -51,8 +54,6 @@ main {
     border-radius: 5px;
     padding: 20px;
     text-align: center;
-    max-width: 300px;
-    margin: 20px auto;
 }
 
 .product img {

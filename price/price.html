@@ -7,79 +7,102 @@
   
 	<link rel="stylesheet" href="price_style.css">
 </head>
+<header>
+  <div class="yaktreba">
+    <img src="/photos/YakTreba.png" alt="">
+  </div>
+  <nav>
+      <ul>
+          <li><a href="#">Популярні послуги</a>
+              <ul>
+                  <li><a href="#">Комп'ютерна діагностика</a></li>
+                  <li><a href="#">Керований пошук несправності</a></li>
+                  <li><a href="#">Послуги автоелектрика</a></li>
+                  <li><a href="#">Заміна мастила та фільтрів</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Прайс</a>
+              <ul>
+                  <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
+
+                  <li><a href="#">Спеціальні пропозиції</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Про нас</a>
+              <ul>
+                  <li><a href="../../about/about.html" id="about">Історія компанії</a></li>
+                  <li><a href="#">Наша команда</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Спецпропозиції</a>
+              <ul>
+                  <li><a href="#">Акції та знижки</a></li>
+                  <li><a href="#">Спеціальні пропозиції для клієнтів</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Відгуки</a>
+              <ul>
+                  <li><a href="#">Відгуки клієнтів</a></li>
+                  <li><a href="#">Рекомендації</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Контакти</a>
+              <ul>
+                  <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
+                  <li><a href="#">Форма зворотного зв'язку</a></li>
+              </ul>
+          </li>
+          <li><a href="/../shop/shop.html">Магазин</a></li>
+      </ul>
+  </nav>
+</header>
 <body>
-<!-- Ціни на послуги автомеханіка та комплексний огляд авто -->
-<h2 class ="head" >Price List</h2>
+    <!-- Ціни на послуги автомеханіка та комплексний огляд авто -->
+    <h2 class="head">Прайс-лист</h2>
 
-<table>
-  <tr>
-    <th>Photo</th>
-    <th>Service</th>
-    <th>Price</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td > <img src="1.png" alt="Description of the image" width="100%" height="100%" ></td>
-    <td>Заміна оливи</td>
-    <td>$50 per service</td>
-    <td>We replace your old oil with fresh, high-quality oil to keep your engine running smoothly. 
-      <ul>
-        <li>✓ Oil</li>
-        <li>✓ Filter</li>
-        <li>✓ Checkup</li>
-      </ul>
-      <a href="#" class="popular">Popular</a></td>
-  </tr>
-  <tr>
-    <td > <img src="2.png" alt="Description of the image" width="100%" height="100%" ></td>
-    <td>Заміна оливи</td>
-    <td>$50 per service</td>
-    <td>We replace your old oil with evenfresh, high-quality oil to keep your engine running smoothly. 
-      <ul>
-        <li>✓ Oil</li>
-        <li>✓ Filter</li>
-        <li>✓ Checkup</li>
-      </ul>
-      <a href="#" class="popular">Popular</a></td>
-  </tr>
-  <tr>
-    <td > <img src="3.png" alt="Description of the image" width="100%" height="100%" ></td>
-    <td>Заміна оливи</td>
-    <td>$50 per service</td>
-    <td>We replace your old oil with fresh, high-quality oil to keep your engine running smoothly. 
-      <ul>
-        <li>✓ Oil</li>
-        <li>✓ Filter</li>
-        <li>✓ Checkup</li>
-      </ul>
-      <a href="#" class="popular">Popular</a></td>
-  </tr>
-  <tr>
-    <td > <img src="3.png" alt="Description of the image" width="100%" height="100%" ></td>
-    <td>Заміна оливи</td>
-    <td>$50 per service</td>
-    <td>We replace your old oil with fresh, high-quality oil to keep your engine running smoothly. 
-      <ul>
-        <li>✓ Oil</li>
-        <li>✓ Filter</li>
-        <li>✓ Checkup</li>
-      </ul>
-      <a href="#" class="popular">Popular</a></td>
-  </tr>
-  <tr>
-    <td > <img src="3.png" alt="Description of the image" width="100%" height="100%" ></td>
-    <td>Заміна оливи</td>
-    <td>$50 per service</td>
-    <td>We replace your old oil with fresh, high-quality oil to keep your engine running smoothly. 
-      <ul>
-        <li>✓ Oil</li>
-        <li>✓ Filter</li>
-        <li>✓ Checkup</li>
-      </ul>
-      <a href="#" class="popular">Popular</a></td>
-  </tr>
-  
-</table>
-
+    <div class="service-container">
+        <div class="service">
+            <img src="1.png" alt="Опис зображення">
+            <div class="service-details">
+                <h3>Заміна оливи</h3>
+                <p>$50 за послугу</p>
+                <p>Ми замінюємо ваше старе масло на свіже, високоякісне масло, щоб ваш двигун працював плавно.</p>
+                <ul>
+                    <li>✓ Олива</li>
+                    <li>✓ Фільтр</li>
+                    <li>✓ Перевірка</li>
+                </ul>
+                <a href="#" class="popular">Популярна</a>
+            </div>
+        </div>
+        <div class="service">
+            <img src="2.png" alt="Опис зображення">
+            <div class="service-details">
+                <h3>Заміна оливи</h3>
+                <p>$50 за послугу</p>
+                <p>Ми замінюємо ваше старе масло на ще свіже, високоякісне масло, щоб ваш двигун працював плавно.</p>
+                <ul>
+                    <li>✓ Олива</li>
+                    <li>✓ Фільтр</li>
+                    <li>✓ Перевірка</li>
+                </ul>
+                <a href="#" class="popular">Популярна</a>
+            </div>
+        </div>
+        <div class="service">
+            <img src="3.png" alt="Опис зображення">
+            <div class="service-details">
+                <h3>Заміна оливи</h3>
+                <p>$50 за послугу</p>
+                <p>Ми замінюємо ваше старе масло на свіже, високоякісне масло, щоб ваш двигун працював плавно.</p>
+                <ul>
+                    <li>✓ Олива</li>
+                    <li>✓ Фільтр</li>
+                    <li>✓ Перевірка</li>
+                </ul>
+                <a href="#" class="popular">Популярна</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

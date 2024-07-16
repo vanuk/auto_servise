@@ -1,49 +1,158 @@
 body {
-    background-color: #d8cd83; /* Зелений колір фону */
-    color: #000000; /* Білий колір тексту для контрасту */
-    font-family: Arial, sans-serif;
-}
-.head{
-    text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(252, 198, 50);
+  margin: 0;
+  padding: 0;
+  color: #000;
+  line-height: 1.6;
 }
 
-table {
-    position:absolute;
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    border-width: 10px;
-    width: 70%;
-    right: 15%;
-    
-  }
-  
-  td, th {
-    border: 3px solid #000000;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f8d754;
-  }
-  
-  tr:nth-last-child(even)
-  {
-    background-color: #f2e858;
-  }
- 
-  .popular {
-    background-color: #e8bc42;
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-  }
-  .img1 {
-    width: 0%;
-    height: 10%;
-    padding-bottom: 2%;
-  }
+h2.head {
+  background: linear-gradient(135deg, rgb(236, 173, 1) 0%, rgba(252, 198, 50, 0.8) 100%);
+  padding: 20px;
+  margin-top: 150px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service:hover {
+  transform: scale(1.02);
+}
+
+.service {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background: rgb(248, 187, 21);
+  border-radius: 8px;
+  padding: 0px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service img {
+  flex: 1 2 200px;
+  max-width: 200px;
+  max-height: 200px;
+  margin-right: 20px;
+  margin-top: 25px;
+  border-radius: 8px;
+}
+
+.service-details {
+  flex: 2 1 400px;
+}
+
+.service-details h3 {
+  margin: 0 0 10px;
+}
+
+.service-details p {
+  margin: 0 0 10px;
+}
+
+.popular {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 10px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.popular:hover {
+  background-color: #333;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgb(252, 198, 50);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.yaktreba {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yaktreba img {
+  width: 18%;
+  object-fit: contain;
+  margin: 1.5% auto;
+}
+
+nav {
+  width: 70%;
+  margin: 0 auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #333;
+}
+
+nav li {
+  position: relative;
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+nav li:hover ul {
+  display: block;
+}
+
+nav li ul li {
+  margin-bottom: 5px;
+}
+
+nav li ul li a {
+  color: #000;
+  font-size: 18px;
+}
+
+nav li ul li a:hover {
+  color: #666;
+}

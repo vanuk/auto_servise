@@ -1,11 +1,14 @@
-
-
 body {  
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700; /* Bold */
+    font-family: 'Aqum two', sans-serif;
+    font-weight: bold;
+    display: grid;
+    justify-content:baseline;
+    align-items: center;
     padding: 0;
+    margin: 0;
+    resize: both;
+    overflow: auto;
 }
-
 
 header {
     position: absolute;
@@ -15,59 +18,101 @@ header {
     z-index: 1;
     background-color: rgb(252, 198, 50);
 }
+
+.vertical {
+    font-size: 0.8vw;
+    margin-top: 0%;
+}
+
 .yaktreba {
-    object-fit: contain;
+    padding-bottom: 1.4%;
+    padding-top: 0.3%;
 }
 
 .yaktreba img {
     display: grid;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1.5%;
-    width: 18%;
+    margin-top: 1%;
+    width: 10%;
     object-fit: contain;
-} 
-
-nav a {    
-    text-decoration: none;
-    color: #ddd;
+    cursor: pointer;
 }
 
 nav {
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
-    
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.9vw;
+    resize: both;
+    overflow: auto;
+}
+  
+nav a:hover {
+    color: #636262;
+}
+  
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    position: relative;
+    padding: 0;
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #f0f0f0;
+  padding: 0.5vw;
+  border: 1px solid #ddd;
+}
+
+nav li:hover ul {
+  display: block;
+}
+
+nav li ul li a {
+  color: #000;
+
+}
+
+nav li ul li a:hover {
+  color: #666;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.container {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    position: relative;
+    background-color: rgba(252, 198,50, 1);
 }
 
 /* кнопка під лого 46 - 71 я в ах*є*/
 .button-32 {
-  background-color: #fff000;
-  border-radius: 12px;
-  color: #000;
-  cursor: pointer;
-  font-weight: bold;
-  text-align: center;
-  transition: 200ms;
-  padding: 2%;
-  width: 20%;
-  box-sizing: border-box;
-  border: 0;
-  font-size: 23px;
-  user-select: none;
-  touch-action: manipulation;
+    font-family: 'Aqum two', sans-serif;
+    background-color: rgba(252, 198,50, 1);
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: 200ms;
+    padding: 2%;
+    height: auto;
+    width: 17%;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 1vw;
+    user-select: none;
+    touch-action: manipulation;
 }
 
 .button-32:not(:disabled):hover,
@@ -83,22 +128,26 @@ main {
   cursor: not-allowed;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
 .text-block {
     position: absolute;
-    top: 53%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
+    font-size: 3.2vw;
+    flex-grow: 1;
+    margin: 8%;
+    padding-top: 8%;
 }
 
 .img {
     opacity: .5;
-}
-/* робить нечіпати!!!!!! 88-149+- */
-h1, h2 {
-    margin-top: 0;
+    margin-top: 3%;
 }
 
+/* робить нечіпати!!!!!! 88-149+- */
 ul {
     list-style: none;
     margin: 0;
@@ -109,87 +158,15 @@ li {
     margin-bottom: 1%;
 }
 
-nav a {
-    color: #000000;
-    text-decoration: none;
-    font-size: 30px;
-  }
-  
-  nav a:hover {
-    color: #636262;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav li {
-  position: relative;
-}
-
-nav li ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #f0f0f0;
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-nav li:hover ul {
-  display: block;
-}
-
-nav li ul li a {
-  color: #000;
-  
-}
-
-nav li ul li a:hover {
-  color: #666;
-}
 /* переробка 150-153*/
 footer p {
     margin: 0;
 }
 /* грід послуг тут баг є!!! 154-185 */
-.services {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2%;
-    position: relative;
-    margin: 1%;
-  }
-  .service {
-    position: relative;
-    padding: 15%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: auto;
-  }
-  
-  .service h2 {
-    margin-top: 0;
-  }
-  
-  .service p {
-    margin-bottom: 0%;
-  }
-  
-  .service a {
-    display: block;
-    margin-top: 0%;
-  }
-
 img {
     width: 100%;
     height: 50%;
-    padding-bottom: 2%;
-  }
+}
 /* нижня полоска переробка тре*/
   footer {
     background-color: #333;
@@ -225,90 +202,6 @@ img {
 /*PRICING TABLE*/
 /* це капец ( * * )
               ---   це перенос на іншу форму 220-325 серйозно?*/
-.pricing {
-  background-color: #000;
-}
-
-.pricing-table {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.pricing-table h2 {
-    margin-top: 0;
-    font-weight: bold;
-    color: #333;
-}
-
-.restyle-btn, .regenerate-btn, .plus-btn {
-    background-color: #337ab7;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.restyle-btn:hover, .regenerate-btn:hover, .plus-btn:hover {
-    background-color: #23527c;
-}
-
-.plus-btn {
-    font-size: 24px;
-    padding: 10px 15px;
-}
-
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
-}
-
-th, td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f7f7f7;
-    font-weight: bold;
-    color: #333;
-}
-
-td {
-    background-color: #fff;
-}
-
-td:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-td:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.popular-btn {
-    background-color: #ff69b4;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.popular-btn:hover {
-    background-color: #ff59a4;
-}
 
 ul {
     list-style: none;
@@ -317,7 +210,7 @@ ul {
 }
 
 ul li {
-    font-size: 27px;
+    font-size: 0.3vw;
     padding-bottom: 0.5%;
 }
 
@@ -373,4 +266,95 @@ button {
 
 button[type="button"]:hover {
     background-color: #3e8e41;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(190, 151, 45);
+    border: 0px none #ffffff;
+    border-radius: 96px;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #e7cd35;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 45px none #ffffff;
+  border-radius: 83px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.container1 {
+    padding: 20px 0;
+    margin: 1.5%;
+}
+
+.section1, .section2 {
+    background: rgb(248, 187, 21);
+    padding: 1vw;
+    margin-top: 1vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.section1 {
+    display: inline-block;
+}
+
+.section2 {
+    float:right;
+}
+
+.section1:hover, .section2:hover {
+    transform: scale(1.02);
+}
+
+.contact-info {
+    background: rgba(252, 198, 50, 0.9);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.highlight {
+    color: #000;
+    font-weight: bold;
 }

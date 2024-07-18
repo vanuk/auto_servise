@@ -308,8 +308,8 @@ button[type="button"]:hover {
 .container-title {
     text-align: center;
     font-size: 3vw;
-    margin-bottom: 4%;
-    margin-top: 1%;
+    padding-top: 0;
+    padding-bottom: 1%;
 }
 
 .section1, .section2 {
@@ -395,4 +395,53 @@ button[type="button"]:hover {
 
 .about-us {
     background-color: rgb(255, 255, 255);
+    padding-bottom: 0;
+}
+
+.title-new {
+    font-size: 1vw;
+    text-align:center;
+    padding: 2%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.new-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 20vw);
+    flex-direction:column;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+}
+
+.general {
+    text-align: center;
+    font-size: 1vw;
+    display: block;
+}
+
+.new-section img {
+    width: 50%;
+    height: 70%;
+}
+
+.yaktreba-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1%;
+    padding-bottom: 4%;
+}
+
+.footer-column a {
+    margin-bottom: 1vw;
+    padding-top: 10%;
+}
+
+.footer-column a:hover {
+    cursor: pointer;
+    color:#ddd
 }

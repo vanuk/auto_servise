@@ -1,37 +1,177 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffec6f;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(255, 203, 60);
+    margin: 0;
+    padding: 0;
+    color: #000;
+    line-height: 1.6;
 }
-
-.wrapper {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f8e923;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-input[type="text"], input[type="email"], textarea {
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000;
+    background-color: rgb(252, 198, 50);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.yaktreba {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yaktreba img {
+    width: 18%;
+    object-fit: contain;
+    margin: 1.5% auto;
+}
+
+nav {
+    width: 70%;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #333;
+}
+
+nav li {
+    position: relative;
+}
+
+nav li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+nav li:hover ul {
+    display: block;
+}
+
+nav li ul li {
+    margin-bottom: 5px;
+}
+
+nav li ul li a {
+    color: #000;
+    font-size: 18px;
+}
+
+nav li ul li a:hover {
+    color: #666;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+    margin: 50px auto;
+    margin-top: 190px;
+    background-color: rgba(255, 197, 36, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Додаємо для підлаштування макету */
+}
+
+.contact-info {
+    width: 50%;
+    margin-bottom: 20px; /* Додаємо відступи для невеликих екранів */
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.form-wrapper {
+    width: 50%;
+}
+
+.form-wrapper label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-wrapper input, .form-wrapper textarea {
+    width: 95%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-textarea {
-    height: 100px;
+.form-wrapper textarea {
+    height: 150px; /* збільшуємо висоту текстового поля */
+    resize: vertical; /* дозволяємо змінювати висоту вручну */
 }
 
-button[type="button"] {
-    background-color: #4CAF50;
-    color: #fff;
+.form-wrapper button {
+    display: inline-block;
     padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-button[type="button"]:hover {
-    background-color: #3e8e41;
+.form-wrapper button:hover {
+    background-color: #333;
+}
+
+/* Медиа-запити для адаптації макету */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Відображення елементів стовпцем */
+    }
+
+    .contact-info, .form-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .contact-info h2 {
+        font-size: 20px;
+    }
+
+    .form-wrapper button {
+        width: 100%; /* Кнопка на всю ширину для зручності */
+    }
 }

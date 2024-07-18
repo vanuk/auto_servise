@@ -5,10 +5,10 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-function validatePhone(phone) {
-    const re = /^\+?\d{10,15}$/;
-    return re.test(String(phone).toLowerCase());
-}
+//  function validatePhone(phone) {
+//      const re = /^\+?\d{10,15}$/;
+//      return re.test(String(phone).toLowerCase());
+//  }
 
 function sendEmail() {
     let fromName = document.getElementById('fromName').value;
@@ -26,10 +26,10 @@ function sendEmail() {
         return false;
     }
 
-    if (!validatePhone(phone)) {
-        alert("Введіть дійсний номер телефону.");
-        return false;
-    }
+    // if (!validatePhone(phone)) {
+    //     alert("Введіть дійсний номер телефону.");
+    //     return false;
+    // }
 
     let params = {
         from_name: fromName,

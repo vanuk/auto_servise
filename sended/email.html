@@ -6,17 +6,81 @@
     <title>Форма для відправки електронної пошти</title>
     <link rel="stylesheet" href="email_style.css">
 </head>
+<header>
+    <div class="yaktreba">
+      <img src="/photos/YakTreba.png" alt="">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Популярні послуги</a>
+                <ul>
+                    <li><a href="#">Комп'ютерна діагностика</a></li>
+                    <li><a href="#">Керований пошук несправності</a></li>
+                    <li><a href="#">Послуги автоелектрика</a></li>
+                    <li><a href="#">Заміна мастила та фільтрів</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Прайс</a>
+                <ul>
+                    <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
+
+                    <li><a href="#">Спеціальні пропозиції</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Про нас</a>
+                <ul>
+                    <li><a href="../../about/about.html" id="about">Історія компанії</a></li>
+                    <li><a href="#">Наша команда</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Спецпропозиції</a>
+                <ul>
+                    <li><a href="#">Акції та знижки</a></li>
+                    <li><a href="#">Спеціальні пропозиції для клієнтів</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Відгуки</a>
+                <ul>
+                    <li><a href="#">Відгуки клієнтів</a></li>
+                    <li><a href="#">Рекомендації</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Контакти</a>
+                <ul>
+                    <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
+                    <li><a href="#">Форма зворотного зв'язку</a></li>
+                </ul>
+            </li>
+            <li><a href="/../shop/shop.html">Магазин</a></li>
+        </ul>
+    </nav>
+</header>
+
+   
 <body>
-    <div class="wrapper">
-        <label for="fromName">Ім'я:</label>
-        <input type="text" id="fromName" name="fromName" required><br><br>
-        <label for="email">Електронна пошта:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="phone">Номер телефону:</label>
-        <input type="text" id="phone" name="phone" required><br><br>
-        <label for="message">Повідомлення:</label>
-        <textarea id="message" name="message" required></textarea><br><br>
-        <button type="submit"  onclick="return sendEmail();">Відправити</button>
+    <div class="container">
+        <div class="contact-info">
+            <h2>ЗВ'ЯЖІТЬСЯ З НАМИ</h2>
+            <p>Якщо у вас виникла проблема з автомобілем або вам просто потрібен ремонт, запишіться на прийом до нашої професійної команди вже сьогодні!</p>
+            <p><strong>Адреса:</strong><br>33022 м.Рівне вул.Кострумська 0</p>
+            <p><strong>Графік роботи:</strong><br>Понеділок - П'ятниця: 09:00 - 19:00<br>Субота: вихідний<br>Неділя: вихідний</p>
+            <p><strong>Контакти:</strong><br>+38 (098) 765 43 21<br>email@gmail.com</p>
+        </div>
+        <div class="form-wrapper">
+            <label for="fromName">Ім'я:</label>
+            <input type="text" id="fromName" name="fromName" required>
+            
+            <label for="email">Електронна пошта:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Номер телефону:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="message">Повідомлення:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit"  onclick="return sendEmail();">Відправити</button>
+        </div>
     </div>
     <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
@@ -29,6 +93,5 @@
     })();
 </script>
     <script src="email_code.js"></script>
-    
 </body>
 </html>

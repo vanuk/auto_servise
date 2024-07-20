@@ -3,14 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Розташування</title>
-    <link rel="stylesheet" href="map.css">
+    <title>Відгуки про Автосервіс "Як Треба"</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .reviews-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .reviews-container h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review .author {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .review .rating {
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+
+        .review .text {
+            color: #555;
+        }
+
+        .google-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .google-link a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .google-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2>РОЗТАШУВАННЯ</h2>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.4284511280323!2d26.283210315738087!3d50.63029157949921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472f13ad1fcd5aaf%3A0x72d6a9f1a3a2d453!2sAUTODIAGNOSTICS!5e0!3m2!1suk!2sua!4v1689682049326!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="reviews-container">
+        <h1>Відгуки про Автосервіс "Як Треба"</h1>
+        <div class="review">
+            <div class="author">Автор: Іван Іванов</div>
+            <div class="rating">Рейтинг: ★★★★★</div>
+            <div class="text">Чудовий сервіс, рекомендую всім!</div>
+        </div>
+        <div class="review">
+            <div class="author">Автор: Петро Петров</div>
+            <div class="rating">Рейтинг: ★★★★☆</div>
+            <div class="text">Дуже добре обслуговування, але трохи довго чекати.</div>
+        </div>
+        <div class="review">
+            <div class="author">Автор: Марія Маріївна</div>
+            <div class="rating">Рейтинг: ★★★☆☆</div>
+            <div class="text">Не зовсім задоволена, можна було б краще.</div>
+        </div>
+        <div class="google-link">
+            <p>Більше відгуків можна знайти за посиланням: <a href="https://www.google.com/maps/place/Автосервіс+Як+Треба" target="_blank">Автосервіс "Як Треба"</a></p>
         </div>
     </div>
 </body>

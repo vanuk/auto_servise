@@ -132,7 +132,8 @@ nav li ul li a:hover {
 }
 
 .form-wrapper textarea {
-    height: 150px; /* збільшуємо висоту текстового поля */
+    max-height: 100px;
+    min-height: 100px; /* збільшуємо висоту текстового поля */
     resize: vertical; /* дозволяємо змінювати висоту вручну */
 }
 

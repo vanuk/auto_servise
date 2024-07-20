@@ -73,13 +73,14 @@ nav li ul {
   display: none;
   position: absolute;
   left: 0;
-  background-color: #f0f0f0;
+  background-color: #ffc021;
   padding: 0.5vw;
   border: 1px solid #ddd;
 }
 
 nav li:hover ul {
-  display: block;
+  display:block;
+  width: 250px;
 }
 
 nav li ul li a {
@@ -88,7 +89,7 @@ nav li ul li a {
 }
 
 nav li ul li a:hover {
-  color: #666;
+  color: #666666;
 }
 
 main {
@@ -139,36 +140,28 @@ main {
     font-size: 3.2vw;
     flex-grow: 1;
     margin: 8%;
-    padding-top: 8%;
+    padding-top: 5%;
 }
 
 .img {
-    opacity: .5;
-    margin-top: 3%;
+    background-color: rgb(252, 198, 50);
+    opacity: .6;
+    margin-top: 10%;
 }
-
-/* робить нечіпати!!!!!! 88-149+- */
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 1%;
-}
-
-/* переробка 150-153*/
-footer p {
-    margin: 0;
-}
-/* грід послуг тут баг є!!! 154-185 */
 img {
     width: 100%;
     height: 50%;
 }
-/* нижня полоска переробка тре*/
-  footer {
+
+.text1{
+    padding-left: 40%;
+    font-size: 2.2vw;
+}
+footer p {
+    margin: 0;
+}
+
+footer {
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -180,94 +173,11 @@ img {
     left: 0;
     z-index: 10;
 }
-/* хз шото тре розібратися вроді ніхт неробить 199 - 216*/
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
-    section {
-        margin-bottom: 10px;
-    }
-}
 
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-    }
-    nav li {
-        margin-right: 0;
-    }
-}
 
-/*PRICING TABLE*/
-/* це капец ( * * )
-              ---   це перенос на іншу форму 220-325 серйозно?*/
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-ul li {
-    font-size: 0.3vw;
-    padding-bottom: 0.5%;
-}
-
-ul li:last-child {
-    border-bottom: none;
-}
-
-ul li:before {
-    margin-right: 10px;
-    color: #337ab7;
-}
-
-/* forma email */
-.wrapper {
-    display: grid;
-    /*grid-template-columns: repeat(3, 1fr);
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;*/
-    margin-left: 40%;
-    margin-right: 40%;
-    height: 500px;
-}
-
-#message {
-    height: 100%;
-    width: 100%;
-}
-
-input {
-    width: 100%;
-    height: 50%;
-    margin-bottom: 20px;
-    border-radius: 12px;
-}
-
-.three {
-    margin-bottom: 10%;
-}
-
-.four {
-    margin: 0;
-    height: 70px;
-}
-
-button {
-    background-color: #4CAF50;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="button"]:hover {
-    background-color: #3e8e41;
-}
-
+/*180-210 воно точно треба? */
 ::-webkit-scrollbar {
   width: 13px;
   height: 13px;
@@ -299,11 +209,89 @@ button[type="button"]:hover {
   background: transparent;
 }
 
-.container1 {
-    padding: 20px 0;
-    margin: 1.5%;
-    position: relative;
+.service-container {
+    
+    border-radius: 8px;
+  }
+.service-block{
+    width: 60%;
+    padding-left: 5%;
 }
+.service {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background: rgb(248, 187, 21);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+.service:hover {
+    transform: scale(1.02);
+  }
+
+.service img {
+    flex: 1 2 200px;
+    max-width: 200px;
+    max-height: 200px;
+    margin-right: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+  }
+.service1 {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background: rgb(248, 187, 21);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+.service-block1{
+    width: 60%;
+    padding-left: 35%;
+}
+.service1:hover {
+    transform: scale(1.02);
+  }
+
+.service1 img {
+    flex: 1 2 200px;
+    max-width: 200px;
+    max-height: 200px;
+    margin-right: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+  }
+.service-details ul{
+    font-size: 18px;
+    line-height: 1.5;
+    margin-left: 10%;
+}
+
+.service-details p {
+    margin: 0 0 10px;
+    
+  }
+
+.popular {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-left: 20%;
+  }
+  
+.popular:hover {
+    background-color: #333;
+  }
 
 .container-title {
     text-align: center;
@@ -312,87 +300,91 @@ button[type="button"]:hover {
     padding-bottom: 1%;
 }
 
-.section1, .section2 {
-    background: rgb(248, 187, 21);
-    padding: 1vw;
-    margin-top: 1vw;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.section1 {
-    display: inline-block;
-    width: 90%;
-    height: 100%;
-}
-
-.section1:hover, .section2:hover {
-    color: #292929;
-}
 
 .label {
+    
     margin: 0.5%;
     font-size: 1.7vw;
     text-align: center;
 }
 
-.info {
-    margin: 0.5%;
-    padding-top: 1%;
-    font-size: 0.9vw;
-    padding-left: 1%;
+@media (max-width: 768px) {
+    .section1 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .label, .photo, .info {
+        margin: 10px 0;
+    }
 }
 
-.info {
-    content: "✓";
-}
 
-.section2 {
-    float: right;
-    width: 90%;
-    height: 100%;
-}
-
-.section1:hover, .section2:hover {
-    transform: scale(1.02);
-}
-
-.contact-info {
-    background: rgba(252, 198, 50, 0.9);
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     padding: 20px;
+}
+
+.container-map,
+.container-video {
+    flex: 1;
+    margin: 10px;
+}
+.map {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.map iframe {
+    width: 80%;
+    max-width: 600px;
+    height: 450px;
+    border: 0;
+}
+.container-map {
     text-align: center;
-    margin-top: 20px;
-    border-radius: 8px;
+    background:  rgb(248, 187, 21);
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contact-info p {
-    margin: 5px 0;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #000;
-    color: #fff;
+.container-video {
     text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    background:  rgb(248, 187, 21);
+    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 113px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-    background-color: #333;
+h2, h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-.highlight {
-    color: #000;
-    font-weight: bold;
+video, iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 350px;
+    border: 2px solid #000;
+    border-radius: 10px;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-map, .container-video {
+        max-width: 100%;
+    }
+}
 .about-us {
     background-color: rgb(255, 255, 255);
     padding-bottom: 0;

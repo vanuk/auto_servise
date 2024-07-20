@@ -1,49 +1,24 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: rgb(252, 198, 50);
-    margin: 0;
-    padding: 0;
-    color: #000;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.video-section {
-    text-align: center;
-    background: #fff;
+.reviews-container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
 
-video {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border: 2px solid #000;
-    border-radius: 10px;
+.review h2 {
+    margin: 0;
 }
 
-@media (max-width: 768px) {
-    .video-section {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    video {
-        max-width: 100%;
-    }
+.review p {
+    margin: 5px 0;
 }

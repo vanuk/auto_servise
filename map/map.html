@@ -3,88 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Відгуки про Автосервіс "Як Треба"</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Дані з Google Таблиці</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .reviews-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .reviews-container h1 {
-            text-align: center;
+            background-color: #f8f9fa;
             color: #333;
+            padding: 20px;
         }
-
-        .review {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-
-        .review:last-child {
-            border-bottom: none;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
-
-        .review .author {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .review .rating {
-            color: #ffc107;
-            margin-bottom: 5px;
-        }
-
-        .review .text {
-            color: #555;
-        }
-
-        .google-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .google-link a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-
-        .google-link a:hover {
-            text-decoration: underline;
+        th {
+            background-color: #f4f4f4;
         }
     </style>
 </head>
 <body>
-    <div class="reviews-container">
-        <h1>Відгуки про Автосервіс "Як Треба"</h1>
-        <div class="review">
-            <div class="author">Автор: Іван Іванов</div>
-            <div class="rating">Рейтинг: ★★★★★</div>
-            <div class="text">Чудовий сервіс, рекомендую всім!</div>
-        </div>
-        <div class="review">
-            <div class="author">Автор: Петро Петров</div>
-            <div class="rating">Рейтинг: ★★★★☆</div>
-            <div class="text">Дуже добре обслуговування, але трохи довго чекати.</div>
-        </div>
-        <div class="review">
-            <div class="author">Автор: Марія Маріївна</div>
-            <div class="rating">Рейтинг: ★★★☆☆</div>
-            <div class="text">Не зовсім задоволена, можна було б краще.</div>
-        </div>
-        <div class="google-link">
-            <p>Більше відгуків можна знайти за посиланням: <a href="https://www.google.com/maps/place/Автосервіс+Як+Треба" target="_blank">Автосервіс "Як Треба"</a></p>
-        </div>
-    </div>
+    <h1>Дані з Google Таблиці</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <!-- Заголовки колонок будуть вставлені сюди -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Дані будуть вставлені сюди -->
+        </tbody>
+    </table>
+    <script>
+        async function fetchData() {
+            const sheetId = '1L3OyLKIO-JqfZ4SRCL2Lohx7-9hjPzaJdH3J9zNd5dc';  // Замініть на ID вашої Google Таблиці
+            const range = 'Sheet1';  // Замініть на ім'я вашого листа
+            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${range}&tqx=out:json`;
+
+            const response = await fetch(url);
+            const text = await response.text();
+            const json = JSON.parse(text.substring(47).slice(0, -2)); // Обрізаємо JSON-обгортку
+            const data = json.table.rows;
+            const headers = json.table.cols;
+
+            // Додаємо заголовки
+            const thead = document.querySelector('#data-table thead tr');
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header.label;
+                thead.appendChild(th);
+            });
+
+            // Додаємо дані
+            const tbody = document.querySelector('#data-table tbody');
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                row.c.forEach(cell => {
+                    const td = document.createElement('td');
+                    td.textContent = cell ? cell.v : '';
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+        }
+
+        fetchData();
+    </script>
 </body>
 </html>

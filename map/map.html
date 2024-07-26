@@ -3,74 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дані з Google Таблиці</title>
+    <title>Запис на автосервіс</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: rgb(252, 198, 50);
+            margin: 0;
             padding: 20px;
+            color: #000;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        th, td {
+        h1 {
+            text-align: center;
+            color: rgb(236, 173, 1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-bottom: 10px;
             border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+            border-radius: 4px;
+            font-size: 16px;
         }
-        th {
-            background-color: #f4f4f4;
+        button {
+            padding: 10px;
+            background-color: rgb(236, 173, 1);
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(252, 198, 50);
+        }
+        #calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .day {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .day.busy {
+            background-color: red; /* Зайняті дати червоні */
+            color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Дані з Google Таблиці</h1>
-    <table id="data-table">
-        <thead>
-            <tr>
-                <!-- Заголовки колонок будуть вставлені сюди -->
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Дані будуть вставлені сюди -->
-        </tbody>
-    </table>
+    <div class="container">
+        <h1>Запис на автосервіс</h1>
+        <form name="contact-form">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="your-name" required>
+            
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="your-number" required>
+            
+            <label for="car">Марка автомобіля:</label>
+            <input type="text" id="car" name="your-car" required>
+            
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Час:</label>
+            <select id="time" name="time" required>
+                <option value="09:00">09:00</option>
+                <option value="12:00">12:00</option>
+                <option value="15:00">15:00</option>
+            </select>
+            
+            <label for="message">Повідомлення:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+            
+            <button type="submit">Записатися</button>
+        </form>
+        
+        <h2>Зайняті дати</h2>
+        <div id="calendar"></div> <!-- Контейнер для календаря -->
+    </div>
+
     <script>
-        async function fetchData() {
-            const sheetId = '1L3OyLKIO-JqfZ4SRCL2Lohx7-9hjPzaJdH3J9zNd5dc';  // Замініть на ID вашої Google Таблиці
-            const range = 'Sheet1';  // Замініть на ім'я вашого листа
-            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${range}&tqx=out:json`;
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxnkLxD6yllha5M0i2dUxIghWaSB7oi8HxYIAufTGfUWaRtJQzm9i1yRDo8oQnjImbcFg/exec';
+        let busyDates = [];
 
-            const response = await fetch(url);
-            const text = await response.text();
-            const json = JSON.parse(text.substring(47).slice(0, -2)); // Обрізаємо JSON-обгортку
-            const data = json.table.rows;
-            const headers = json.table.cols;
-
-            // Додаємо заголовки
-            const thead = document.querySelector('#data-table thead tr');
-            headers.forEach(header => {
-                const th = document.createElement('th');
-                th.textContent = header.label;
-                thead.appendChild(th);
-            });
-
-            // Додаємо дані
-            const tbody = document.querySelector('#data-table tbody');
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                row.c.forEach(cell => {
-                    const td = document.createElement('td');
-                    td.textContent = cell ? cell.v : '';
-                    tr.appendChild(td);
-                });
-                tbody.appendChild(tr);
-            });
+        // Функція для оновлення списку зайнятих дат
+        async function updateBusyDates() {
+            try {
+                const datesResponse = await fetch(`${scriptURL}?action=getDates`);
+                const dates = await datesResponse.json();
+                busyDates = dates.map(date => new Date(date).toLocaleDateString('uk-UA', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                }));
+                console.log('Зайняті дати:', busyDates);
+            } catch (error) {
+                console.error('Error!', error.message);
+            }
         }
 
-        fetchData();
+        // Функція для оновлення календаря
+        function updateCalendar() {
+            const calendar = document.getElementById('calendar');
+            calendar.innerHTML = ''; // Очистити попередні дні
+
+            const today = new Date();
+            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayDate = new Date(today.getFullYear(), today.getMonth(), i);
+                const dayElement = document.createElement('div');
+                dayElement.className = 'day';
+                dayElement.textContent = i;
+
+                // Перевірка на зайняті дати
+                if (busyDates.includes(dayDate.toLocaleDateString('uk-UA', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                }))) {
+                    dayElement.classList.add('busy');
+                }
+
+                calendar.appendChild(dayElement);
+            }
+        }
+
+        // Оновлюємо список зайнятих дат при завантаженні сторінки
+        window.addEventListener('load', async () => {
+            await updateBusyDates();
+            updateCalendar(); // Оновити календар після завантаження зайнятих дат
+        });
+
+        // Обробка форми
+        const form = document.forms['contact-form'];
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const selectedDate = new Date(formData.get('date')).toLocaleDateString('uk-UA', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+
+            if (busyDates.includes(selectedDate)) {
+                const nextAvailableDate = findNextAvailableDate(new Date(formData.get('date')));
+                alert(`Вибрана дата зайнята. Найближча вільна дата: ${nextAvailableDate.toLocaleDateString('uk-UA', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                })}`);
+                return;
+            }
+
+            try {
+                const response = await fetch(scriptURL, { method: 'POST', body: formData });
+                const result = await response.json();
+
+                if (result.result === 'success') {
+                    alert('Запис успішно відправлено!');
+                    form.reset();
+                    await updateBusyDates(); // Оновлюємо список зайнятих дат після відправки
+                    updateCalendar(); // Оновити календар
+                } else if (result.result === 'full') {
+                    alert('Всі слоти зайняті на обрану дату. Найближчий доступний час: ' + result.availableDate + ' ' + result.availableTime);
+                } else {
+                    alert('Сталася помилка: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error!', error.message);
+            }
+        });
+
+        // Функція для знаходження найближчої вільної дати
+        function findNextAvailableDate(startDate) {
+            let nextDate = new Date(startDate);
+            while (busyDates.includes(nextDate.toLocaleDateString('uk-UA', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            }))) {
+                nextDate.setDate(nextDate.getDate() + 1);
+            }
+            return nextDate;
+        }
     </script>
 </body>
 </html>

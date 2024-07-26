@@ -1,22 +1,11 @@
-const express = require('express');
-const axios = require('axios');
-const app = express();
-const PORT = process.env.PORT || 3000;
-const API_KEY = 'YOUR_GOOGLE_API_KEY';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwG4t5-hGCLEsI9sDY2cSswiEjHgSkaMB5QG1F7Mk-EJXEaLtRp4TeTGLsbxB-1MD_l_g/exec';
 
-app.get('/reviews', async (req, res) => {
-    try {
-        const placeId = '0x472f15f321e331cb:0x92d177335de764d7';
-        const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${API_KEY}`;
-        const response = await axios.get(url);
-        const reviews = response.data.result.reviews;
-        res.json(reviews);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Помилка при отриманні відгуків');
-    }
-});
+const form = document.forms['contact-form'];
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thank you! your form is submitted successfully." ))
+        .then(() => { window.location.reload(); })
+        .catch(error => console.error('Error!', error.message));
 });

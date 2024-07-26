@@ -1,0 +1,46 @@
+function doGet(e) {
+  if (e.parameter.action === 'getDates') {
+    return getDates();
+  }
+}
+
+function doPost(e) {
+  const sheet = SpreadsheetApp.openById('1gOE8nQSxYCqr4JT8UH2ixYp_oD4UMqres2EiJ7_Rdfk').getSheetByName('Sheet1'); // Замініть 'YOUR_SHEET_ID' на ваш ID Google Sheet
+  const data = e.parameter;
+
+  const date = data.date;
+  const time = data.time;
+
+  const existingDates = sheet.getRange('E2:E').getValues().flat().filter(date => date !== '');
+  const dateCount = existingDates.filter(d => d === date).length;
+
+  if (dateCount >= 3) { // Припустимо, що в день можна зробити максимум 3 записи
+    const nextAvailableDate = findNextAvailableDate(existingDates);
+    return ContentService.createTextOutput(JSON.stringify({ result: 'full', availableDate: nextAvailableDate, availableTime: '09:00' })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  const newRow = [data['your-name'], data['your-number'], data['your-car'], data.message, date, time];
+  sheet.appendRow(newRow);
+
+  return ContentService.createTextOutput(JSON.stringify({ result: 'success' })).setMimeType(ContentService.MimeType.JSON);
+}
+
+function getDates() {
+  const sheet = SpreadsheetApp.openById('1gOE8nQSxYCqr4JT8UH2ixYp_oD4UMqres2EiJ7_Rdfk').getSheetByName('Sheet1'); // Замініть 'YOUR_SHEET_ID' на ваш ID Google Sheet
+  const data = sheet.getRange('E2:E').getValues();
+
+  const dates = data.flat().filter(date => date !== '');
+
+  return ContentService.createTextOutput(JSON.stringify(dates)).setMimeType(ContentService.MimeType.JSON);
+}
+
+function findNextAvailableDate(existingDates) {
+  let date = new Date();
+  date.setDate(date.getDate() + 1);
+
+  while (existingDates.includes(Utilities.formatDate(date, Session.getScriptTimeZone(), 'MM/dd/yyyy'))) {
+    date.setDate(date.getDate() + 1);
+  }
+
+  return Utilities.formatDate(date, Session.getScriptTimeZone(), 'MM/dd/yyyy');
+}

@@ -1,0 +1,55 @@
+function doGet(e) {
+  if (e.parameter.action === 'getDates') {
+    return getDates();
+  }
+}
+
+function doPost(e) {
+  const sheet = SpreadsheetApp.openById('1gOE8nQSxYCqr4JT8UH2ixYp_oD4UMqres2EiJ7_Rdfk').getSheetByName('Sheet1');
+  const data = e.parameter;
+
+  const date = data.date;
+  const time = data.time;
+
+  const existingData = sheet.getRange('E2:F').getValues(); // Отримати дані з колонок E та F
+  const existingDatesAndTimes = existingData.filter(row => row[0] !== '' && row[1] !== '');
+
+  // Перевірка на зайняті дати та часи (порівнюємо тільки години)
+  const dateTimeCount = existingDatesAndTimes.filter(row => row[0] === date && row[1] === time).length;
+
+  if (dateTimeCount >= 3) { // Максимум 3 записи на одну годину
+    const nextAvailableDate = findNextAvailableDate(existingDatesAndTimes);
+    return ContentService.createTextOutput(JSON.stringify({ result: 'full', availableDate: nextAvailableDate, availableTime: time })).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  const newRow = [data['your-name'], data['your-number'], data['your-car'], data.message, date, time];
+  sheet.appendRow(newRow);
+
+  return ContentService.createTextOutput(JSON.stringify({ result: 'success' })).setMimeType(ContentService.MimeType.JSON);
+}
+
+function getDates() {
+  const sheet = SpreadsheetApp.openById('1gOE8nQSxYCqr4JT8UH2ixYp_oD4UMqres2EiJ7_Rdfk').getSheetByName('Sheet1');
+  const data = sheet.getRange('E2:F').getValues(); // Отримати дані з колонок E та F
+
+  const datesAndTimes = data.filter(row => row[0] !== '' && row[1] !== '').map(row => {
+    const time = new Date(`${row[1]}`); // Форматування часу
+    const formattedTime = Utilities.formatDate(time, Session.getScriptTimeZone(), 'HH:mm'); // Форматування тільки для годин і хвилин
+    return [row[0], formattedTime]; // Повертаємо дату і відформатований час
+  });
+
+  return ContentService.createTextOutput(JSON.stringify(datesAndTimes)).setMimeType(ContentService.MimeType.JSON);
+}
+
+
+
+function findNextAvailableDate(existingDatesAndTimes) {
+  let date = new Date();
+  date.setDate(date.getDate() + 1);
+
+  while (existingDatesAndTimes.some(row => row[0] === Utilities.formatDate(date, Session.getScriptTimeZone(), 'yyyy-MM-dd'))) {
+    date.setDate(date.getDate() + 1);
+  }
+
+  return Utilities.formatDate(date, Session.getScriptTimeZone(), 'yyyy-MM-dd');
+}

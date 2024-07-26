@@ -106,7 +106,7 @@
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxnkLxD6yllha5M0i2dUxIghWaSB7oi8HxYIAufTGfUWaRtJQzm9i1yRDo8oQnjImbcFg/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxfXG3J9dompQjGyjNsHE9dw6hZMgUxMUTE-1O0DH1Daz6sRAdejmnGpaLFUaQxLdflzA/exec';
         let busyDates = [];
 
         // Функція для оновлення списку зайнятих дат
@@ -114,17 +114,22 @@
             try {
                 const datesResponse = await fetch(`${scriptURL}?action=getDates`);
                 const dates = await datesResponse.json();
-                busyDates = dates.map(date => new Date(date).toLocaleDateString('uk-UA', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric'
-                }));
+                busyDates = dates.map(date => {
+                    return {
+                        date: new Date(date[0]).toLocaleDateString('uk-UA', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric'
+                        }),
+                        time: date[1]
+                    };
+                });
                 console.log('Зайняті дати:', busyDates);
             } catch (error) {
                 console.error('Error!', error.message);
             }
         }
-
+//7 15 36 1 44 24
         // Функція для оновлення календаря
         function updateCalendar() {
             const calendar = document.getElementById('calendar');
@@ -140,11 +145,13 @@
                 dayElement.textContent = i;
 
                 // Перевірка на зайняті дати
-                if (busyDates.includes(dayDate.toLocaleDateString('uk-UA', {
+                const formattedDate = dayDate.toLocaleDateString('uk-UA', {
                     day: '2-digit',
                     month: '2-digit',
                     year: 'numeric'
-                }))) {
+                });
+
+                if (busyDates.some(busy => busy.date === formattedDate)) {
                     dayElement.classList.add('busy');
                 }
 
@@ -159,50 +166,51 @@
         });
 
         // Обробка форми
-        const form = document.forms['contact-form'];
-        form.addEventListener('submit', async e => {
-            e.preventDefault();
+        // Обробка форми
+const form = document.forms['contact-form'];
+form.addEventListener('submit', async e => {
+    e.preventDefault();
 
-            const formData = new FormData(form);
-            const selectedDate = new Date(formData.get('date')).toLocaleDateString('uk-UA', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
+    const formData = new FormData(form);
+    const selectedDate = new Date(formData.get('date')).toLocaleDateString('uk-UA', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
 
-            if (busyDates.includes(selectedDate)) {
-                const nextAvailableDate = findNextAvailableDate(new Date(formData.get('date')));
-                alert(`Вибрана дата зайнята. Найближча вільна дата: ${nextAvailableDate.toLocaleDateString('uk-UA', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric'
-                })}`);
-                return;
-            }
+    const selectedTime = formData.get('time'); // Отримати вибраний час
+    const selectedHour = selectedTime.split(':')[0]; // Витягнути години з вибраного часу
 
-            try {
-                const response = await fetch(scriptURL, { method: 'POST', body: formData });
-                const result = await response.json();
+    // Перевірка на зайняті дати та години
+    if (busyDates.some(busy => busy.date === selectedDate && busy.time.split(':')[0] === selectedHour)) {
+        alert('Вибрана дата і час зайняті. Будь ласка, виберіть інший час.');
+        return;
+    }
 
-                if (result.result === 'success') {
-                    alert('Запис успішно відправлено!');
-                    form.reset();
-                    await updateBusyDates(); // Оновлюємо список зайнятих дат після відправки
-                    updateCalendar(); // Оновити календар
-                } else if (result.result === 'full') {
-                    alert('Всі слоти зайняті на обрану дату. Найближчий доступний час: ' + result.availableDate + ' ' + result.availableTime);
-                } else {
-                    alert('Сталася помилка: ' + result.message);
-                }
-            } catch (error) {
-                console.error('Error!', error.message);
-            }
-        });
+    try {
+        const response = await fetch(scriptURL, { method: 'POST', body: formData });
+        const result = await response.json();
+
+        if (result.result === 'success') {
+            alert('Запис успішно відправлено!');
+            form.reset();
+            await updateBusyDates(); // Оновлюємо список зайнятих дат після відправки
+            updateCalendar(); // Оновити календар
+        } else if (result.result === 'full') {
+            alert('Всі слоти зайняті на обрану дату. Найближчий доступний час: ' + result.availableDate + ' ' + result.availableTime);
+        } else {
+            alert('Сталася помилка: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error!', error.message);
+    }
+});
+
 
         // Функція для знаходження найближчої вільної дати
         function findNextAvailableDate(startDate) {
             let nextDate = new Date(startDate);
-            while (busyDates.includes(nextDate.toLocaleDateString('uk-UA', {
+            while (busyDates.some(busy => busy.date === nextDate.toLocaleDateString('uk-UA', {
                 day: '2-digit',
                 month: '2-digit',
                 year: 'numeric'

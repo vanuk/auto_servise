@@ -1,5 +1,5 @@
 body {  
-    font-family: 'Aqum two', sans-serif;
+    font-family: 'DejaVu Sans Extra Light', sans-serif;
     font-weight: bold;
     display: grid;
     justify-content:baseline;
@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -172,9 +172,6 @@ footer {
     left: 0;
     z-index: 10;
 }
-
-
-
 
 /*180-210 воно точно треба? */
 ::-webkit-scrollbar {
@@ -415,22 +412,24 @@ video, iframe {
 .box {
     text-align: center;
     font-size: 2vw;
+    padding-bottom: 3%;
 }
 
 .info-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1vw;
+    gap: 4vw;
     justify-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .info-item {
     background-color: #f8bb15;
-    
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 1vw;
-    width: 40%;
+    width: 50%;
     text-align: center;
     transition: transform 0.3s;
 }
@@ -449,12 +448,6 @@ video, iframe {
     color: #333;
 }
 
-.info-item a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
 .info-item a:hover {
     text-decoration: underline;
 }
@@ -467,6 +460,11 @@ video, iframe {
 .new-section img {
     width: 30%;
     height: 70%;
+}
+
+.all-about hr {
+    color: #000;
+    padding-top: 0;
 }
 
 .yaktreba-footer {
@@ -482,11 +480,109 @@ video, iframe {
 }
 
 .footer-column p, a {
-    font-size: 0.6vw;
+    font-size: 0.7vw;
 }
-
 
 .footer-column a:hover {
     cursor: pointer;
     color:#ddd
+}
+
+.social-m {
+    display: flex;
+}
+
+.social-m img {
+    width: 23%;
+    max-height: 40px;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    flex-wrap: wrap; /* Додаємо для підлаштування макету */
+}
+
+.contact-info {
+    width: 50%;
+    margin-bottom: 20px; /* Додаємо відступи для невеликих екранів */
+}
+
+.contact-info h2 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+}
+
+.contact-info p {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+}
+
+.form-wrapper {
+    padding: 2%;
+    background-color: #f8bb15;
+    width: 30%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper label {
+    display: block;
+    margin-bottom: 0.5vw;
+    font-weight: bold;
+}
+
+.form-wrapper input, .form-wrapper textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-wrapper textarea {
+    max-height: 100px;
+    min-height: 100px; /* збільшуємо висоту текстового поля */
+    resize: vertical; /* дозволяємо змінювати висоту вручну */
+}
+
+.form-wrapper button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-wrapper button:hover {
+    background-color: #333;
+}
+
+/* Медиа-запити для адаптації макету */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Відображення елементів стовпцем */
+    }
+
+    .contact-info, .form-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .contact-info h2 {
+        font-size: 20px;
+    }
+
+    .form-wrapper button {
+        width: 100%; /* Кнопка на всю ширину для зручності */
+    }
 }

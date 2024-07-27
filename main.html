@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AUTODIAGNOSTIC - Найкращі спеціалісти Рівного у сфері автосервісу</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
 </head>
 <header>
   <div class="yaktreba">
@@ -74,26 +73,22 @@
   </div>
 </header>
 <body>
-   
-
     <div class="container">
       <div class="img">
         <img src="photos/maket.png" alt="1">
       </div>
       <div class="text-block">
-        <p>"Тут маЄ бути"</p>
+        <p>"Тут має бути"</p>
         <p>"Ваша цитата"</p>
         <button class="button-32" role="button">Більше</button>
       </div>
     </div>
   <main>
-    
     <div class="information">
       <div class="box">
         <p>Популярні послуги</p>
       </div>
     </div>
-  
   <div class="service-container">
     <div class="service-block">
       <div class="service">
@@ -110,7 +105,6 @@
         </div>
       </div>
     </div>
-
     <div class="service-block1">
       <div class="service1">
         <img src="photos/alternator1.png" alt="Опис зображення">
@@ -126,7 +120,6 @@
         </div>
       </div>  
     </div>
-
     <div class="service-block">
       <div class="service">
         <img src="photos/alternator1.png" alt="Опис зображення">
@@ -142,7 +135,6 @@
         </div>
       </div>
     </div>
-
     <div class="service-block1">
       <div class="service1">
         <img src="photos/alternator1.png" alt="Опис зображення">
@@ -159,7 +151,6 @@
       </div>  
     </div>
   </div>
-
   <div class="information">
     <div class="box">
       <p>Інформація про автосервіс</p>
@@ -169,33 +160,27 @@
     <div class="info-grid">
         <div class="info-item">
             <img src="path/to/icon1.png" alt="Оригінальні запчастини Bosch">
-            <h3>Оригінальні запчастини Bosch</h3>
-            <a href="#">Детальніше</a>
+            <h3>Оригінальні запчастини</h3>
         </div>
         <div class="info-item">
             <img src="path/to/icon2.png" alt="Якісний ремонт">
             <h3>Якісний ремонт</h3>
-            <a href="#">Детальніше</a>
         </div>
         <div class="info-item">
             <img src="path/to/icon3.png" alt="Сервіс автомобілів різних брендів">
             <h3>Сервіс автомобілів різних брендів</h3>
-            <a href="#">Детальніше</a>
         </div>
         <div class="info-item">
             <img src="path/to/icon4.png" alt="Широкий спектр послуг">
             <h3>Широкий спектр послуг</h3>
-            <a href="#">Детальніше</a>
         </div>
         <div class="info-item">
             <img src="path/to/icon5.png" alt="Гарантія на з/ч і послуги">
             <h3>Гарантія на з/ч і послуги</h3>
-            <a href="#">Детальніше</a>
         </div>
         <div class="info-item">
             <img src="path/to/icon6.png" alt="Європейський сервіс доступний кожному">
             <h3>Європейський сервіс доступний кожному</h3>
-            <a href="#">Детальніше</a>
         </div>
     </div>
 </div>
@@ -218,6 +203,34 @@
         </section>
     </div>
 </div>
+<div class="container-footer">
+  <div class="contact-info">
+      <h2>ЗВ'ЯЖІТЬСЯ З НАМИ</h2>
+      <p>Якщо у вас виникла проблема з автомобілем або вам просто <br> потрібен ремонт, запишіться на прийом до нашої 
+        професійної <br> команди вже сьогодні!</p>
+      <p><strong>Адреса:</strong><br>33022 м.Рівне вул.Кострумська 0</p>
+      <p><strong>Графік роботи:</strong><br>Понеділок - П'ятниця: 09:00 - 19:00<br>Субота: вихідний<br>Неділя: вихідний</p>
+      <p><strong>Контакти:</strong><br>+38 (098) 765 43 21<br>email@gmail.com</p>
+  </div>
+  <div class="form-wrapper">
+      <label for="fromName">Ім'я:</label>
+      <input type="text" id="fromName" name="fromName" required>
+      
+      <label for="email">Електронна пошта:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="phone">Номер телефону:</label>
+      <input type="text" id="phone" name="phone" required>
+      
+      <label for="message">Повідомлення:</label>
+      <textarea id="message" name="message" required></textarea>
+      
+      <button type="submit"  onclick="return sendEmail();">Відправити</button>
+  </div>
+</div>
+
+
+<hr>
   <div class="all-about">
       <div class="yaktreba-footer">
         <div class="footer-column">
@@ -244,15 +257,28 @@
       </div>
       <div class="footer-column footer-social">
           <h3>Слідкуйте за нами</h3>
-          <a><i class="fa fa-youtube"></i></a>
-          <a><i class="fa fa-facebook"></i></a>
           <p>ПН - ПТ: 09:00 - 18:00<br>Субота: 9:00 - 15:00<br>Неділя - вихідний</p>
+          <div class="social-m">
+            <img src="./photos/instagram.png" alt="">
+            <img src="./photos/youtube.png" alt="">
+          </div>
       </div>
       </div>
   </div>
-  
   </main>
   <footer class="under">
     <p>&copy; 2023 AUTODIAGNOSTIC</p>
   </footer>
 </body>
+<script type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function() {
+    emailjs.init({
+    publicKey: "PhLjHaJX7JeLNSXPd",
+});
+})();
+</script>
+<script src="/sended/email_code.js"></script>
+</html>

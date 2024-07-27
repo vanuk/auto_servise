@@ -4,57 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ремонт Генератора</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="alternator.css">
 </head>
 <header>
     <div class="yaktreba">
-      <img src="/photos/YakTreba.png" alt="">
+      <img onclick="window.location.href='main.html'" src="/photos/YakTreba 2.0.png" alt="">
     </div>
-    <nav>
+    <div>
+      <nav>
         <ul>
-            <li><a href="#">Популярні послуги</a>
-                <ul>
-                    <li><a href="#">Комп'ютерна діагностика</a></li>
-                    <li><a href="#">Керований пошук несправності</a></li>
-                    <li><a href="#">Послуги автоелектрика</a></li>
-                    <li><a href="#">Заміна мастила та фільтрів</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Прайс</a>
-                <ul>
-                    <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
-
-                    <li><a href="#">Спеціальні пропозиції</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Про нас</a>
-                <ul>
-                    <li><a href="../../about/about.html" id="about">Історія компанії</a></li>
-                    <li><a href="#">Наша команда</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Спецпропозиції</a>
-                <ul>
-                    <li><a href="#">Акції та знижки</a></li>
-                    <li><a href="#">Спеціальні пропозиції для клієнтів</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Відгуки</a>
-                <ul>
-                    <li><a href="#">Відгуки клієнтів</a></li>
-                    <li><a href="#">Рекомендації</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Контакти</a>
-                <ul>
-                    <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
-                    <li><a href="#">Форма зворотного зв'язку</a></li>
-                </ul>
-            </li>
-            <li><a href="/../shop/shop.html">Магазин</a></li>
+          <li><a href="#">Популярні послуги</a>
+            <ul>
+              <li><a href="/services/alternator/alternator.html">Ремонт генераторама</a></li>
+              <li><a href="/services/starter/starter.html">Ремонт стартера</a></li>
+              <li><a href="/services/compressor/compressor.html">Ремонт компресора</a></li>
+              <li><a href="/services/installation/installation.html">Монтаж демонтаж</a></li>
+              <li><a href="/services/wash_system/wash.html">Мийка системи</a></li>
+              <li><a href="/services/replace_condition/condition.html">Заміна конденцера</a></li>
+              <li><a href="/services/replace_radiator/radiator.html">Заміна радіотара</a></li>
+              <li><a href="/services/replace_intercooler/intercooler.html">Заміна інтеркулера</a></li>
+              <li><a href="#">Ремонт требокондеціонування</a></li>
+              <li><a href="/services/weld/weld.html">Аргоне зварювання</a></li>
+              <li><a href="/services/zoning_salon/salon.html">Зонування салону</a></li>
+              <li><a href="/services/bacterial_clean/clean.html">Бактеріальна чистка</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <li><a href="#">Прайс</a>
+            <ul>
+              <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
+              <li><a href="#">Спеціальні пропозиції</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <li><a href="#">Про нас</a>
+            <ul>
+              <li><a href="/about/about.html" id="about">Історія компанії</a></li>
+              <li><a href="#">Наша команда</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+         <!-- <li><a href="#">Спецпропозиції</a>
+            <ul>
+              <li><a href="#">Акції та знижки</a></li>
+              <li><a href="#">Спеціальні пропозиції для клієнтів</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+        -->
+          <li><a href="#">Відгуки</a>
+            <ul>
+              <li><a href="/review/review.html">Відгуки клієнтів</a></li>
+              <li><a href="#">Рекомендації</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <li><a href="#">Контакти</a>
+            <ul>
+              <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
+              <li><a href="#">Форма зворотного зв'язку</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <!-- Додамо пункт меню для переходу в магазин -->
+          <li><a href="/shop/shop.html">Магазин</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
 </header>
 <body>
    
@@ -99,7 +116,8 @@
             <li>Гарантія на виконані роботи</li>
             <li>Доступні ціни</li>
         </ul>
-        <a href="contact.html" class="btn">Зв'яжіться з нами</a>
+        <a href="/sended/email.html" class="btn">Зв'яжіться з нами</a>
+        <a href="/sheet/sheet.html" class="btn">Записатися онлайн</a>
     </section>
 
     <section class="section">

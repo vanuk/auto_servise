@@ -1,0 +1,90 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(252, 198, 50);
+    margin: 0;
+    padding: 20px;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+}
+.container {
+    width: 75%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.calendar-container {
+    width: 25%;
+    background-color: rgb(236, 173, 1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: rgb(236, 173, 1);
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin: 10px 0 5px;
+}
+input, select, textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+button {
+    padding: 10px;
+    background-color: rgb(236, 173, 1);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(252, 198, 50);
+}
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+.day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.day.busy {
+    background-color: red;
+    color: white;
+}
+.day.partial {
+    background-color: orange; /* Сильний помаранчевий колір для частково зайнятих днів */
+    color: white;
+}
+
+#available-slots {
+    margin-top: 20px;
+}
+.month-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.month-title {
+    font-size: 20px;
+    font-weight: bold;
+}

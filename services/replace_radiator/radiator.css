@@ -1,0 +1,178 @@
+body {
+   
+    background-color: rgba(248, 194, 46, 1.00); /* Змінив на білий фон */
+    margin: 0;
+    padding: 0;
+    color: #000;
+    line-height: 1.6;
+    font-family: 'Aqum two', sans-serif;
+    font-weight: bold;
+    display: grid;
+    justify-content:baseline;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    resize: both;
+    overflow: auto;
+}
+
+header {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgb(255, 196, 32);
+}
+
+.vertical {
+    font-size: 0.8vw;
+    margin-top: 0%;
+}
+
+.yaktreba {
+    padding-bottom: 1.4%;
+}
+
+.yaktreba img {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    width: 23vw;
+    cursor: pointer;
+    height: 3.5vw;
+}
+nav {
+    width: 75%;
+    margin: 0 auto;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.1vw;
+    resize: both;
+    overflow: auto;
+}
+  
+nav a:hover {
+    color: #636262;
+}
+  
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    position: relative;
+    padding: 0;
+}
+
+nav li ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #ffc021;
+  padding: 0.5vw;
+  border: 1px solid #ddd;
+}
+
+nav li:hover ul {
+  display:block;
+  width: 250px;
+}
+
+nav li ul li a {
+  color: #000;
+
+}
+
+nav li ul li a:hover {
+  color: #666666;
+}
+
+
+.name {
+    background: linear-gradient(135deg, rgb(255, 196, 32) 0%, rgba(248, 194, 46, 1.00) 100%);
+    padding: 1vw;
+    margin-top: 8%;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.section {
+    background: rgb(255, 196, 32); /* Зроблено більш світлим */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.section:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    color: #000;
+    margin-bottom: 20px;
+}
+
+ul, ol {
+    margin-left: 20px;
+}
+
+.section img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    background: rgba(248, 194, 46, 1.00); /* Зроблено більш світлим */
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.highlight {
+    color: #000;
+    font-weight: bold;
+}

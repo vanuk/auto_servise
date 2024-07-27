@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запис на автосервіс</title>
+    <link rel="stylesheet" href="sheet_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Запис на автосервіс</h1>
+        <form name="contact-form">
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="your-name" required>
+            
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="your-number" required>
+            
+            <label for="car">Марка автомобіля:</label>
+            <input type="text" id="car" name="your-car" required>
+            
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Час:</label>
+            <select id="time" name="time" required>
+                <option value="09:00">09:00</option>
+                <option value="12:00">12:00</option>
+                <option value="15:00">15:00</option>
+            </select>
+            
+            <label for="message">Повідомлення:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+            
+            <button type="submit">Записатися</button>
+            <div id="submissionMessage" style="margin-top: 10px; color: green;"></div>
+        </form>
+    </div>
+
+    <div class="calendar-container">
+        <div class="month-nav">
+            <button id="prevMonth">&#10094;</button>
+            <div class="month-title" id="monthTitle"></div>
+            <button id="nextMonth">&#10095;</button>
+        </div>
+        <div id="calendar"></div>
+        <div id="available-slots"></div>
+    </div>
+
+    <script src="sheet_code.js"></script>
+</body>
+</html>
+

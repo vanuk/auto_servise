@@ -4,73 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Запис на автосервіс</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: rgb(252, 198, 50);
-            margin: 0;
-            padding: 20px;
-            color: #000;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: rgb(236, 173, 1);
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin: 10px 0 5px;
-        }
-        input, select, textarea {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px;
-            background-color: rgb(236, 173, 1);
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: rgb(252, 198, 50);
-        }
-        #calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin-top: 20px;
-        }
-        .day {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .day.busy {
-            background-color: red; /* Зайняті дати червоні */
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="map.css">
 </head>
 <body>
     <div class="container">
@@ -99,126 +33,21 @@
             <textarea id="message" name="message" rows="4"></textarea>
             
             <button type="submit">Записатися</button>
+            <div id="submissionMessage" style="margin-top: 10px; color: green;"></div>
         </form>
-        
-        <h2>Зайняті дати</h2>
-        <div id="calendar"></div> <!-- Контейнер для календаря -->
     </div>
 
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxfXG3J9dompQjGyjNsHE9dw6hZMgUxMUTE-1O0DH1Daz6sRAdejmnGpaLFUaQxLdflzA/exec';
-        let busyDates = [];
+    <div class="calendar-container">
+        <div class="month-nav">
+            <button id="prevMonth">&#10094;</button>
+            <div class="month-title" id="monthTitle"></div>
+            <button id="nextMonth">&#10095;</button>
+        </div>
+        <div id="calendar"></div>
+        <div id="available-slots"></div>
+    </div>
 
-        // Функція для оновлення списку зайнятих дат
-        async function updateBusyDates() {
-            try {
-                const datesResponse = await fetch(`${scriptURL}?action=getDates`);
-                const dates = await datesResponse.json();
-                busyDates = dates.map(date => {
-                    return {
-                        date: new Date(date[0]).toLocaleDateString('uk-UA', {
-                            day: '2-digit',
-                            month: '2-digit',
-                            year: 'numeric'
-                        }),
-                        time: date[1]
-                    };
-                });
-                console.log('Зайняті дати:', busyDates);
-            } catch (error) {
-                console.error('Error!', error.message);
-            }
-        }
-//7 15 36 1 44 24
-        // Функція для оновлення календаря
-        function updateCalendar() {
-            const calendar = document.getElementById('calendar');
-            calendar.innerHTML = ''; // Очистити попередні дні
-
-            const today = new Date();
-            const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-
-            for (let i = 1; i <= daysInMonth; i++) {
-                const dayDate = new Date(today.getFullYear(), today.getMonth(), i);
-                const dayElement = document.createElement('div');
-                dayElement.className = 'day';
-                dayElement.textContent = i;
-
-                // Перевірка на зайняті дати
-                const formattedDate = dayDate.toLocaleDateString('uk-UA', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric'
-                });
-
-                if (busyDates.some(busy => busy.date === formattedDate)) {
-                    dayElement.classList.add('busy');
-                }
-
-                calendar.appendChild(dayElement);
-            }
-        }
-
-        // Оновлюємо список зайнятих дат при завантаженні сторінки
-        window.addEventListener('load', async () => {
-            await updateBusyDates();
-            updateCalendar(); // Оновити календар після завантаження зайнятих дат
-        });
-
-        // Обробка форми
-        // Обробка форми
-const form = document.forms['contact-form'];
-form.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const selectedDate = new Date(formData.get('date')).toLocaleDateString('uk-UA', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-
-    const selectedTime = formData.get('time'); // Отримати вибраний час
-    const selectedHour = selectedTime.split(':')[0]; // Витягнути години з вибраного часу
-
-    // Перевірка на зайняті дати та години
-    if (busyDates.some(busy => busy.date === selectedDate && busy.time.split(':')[0] === selectedHour)) {
-        alert('Вибрана дата і час зайняті. Будь ласка, виберіть інший час.');
-        return;
-    }
-
-    try {
-        const response = await fetch(scriptURL, { method: 'POST', body: formData });
-        const result = await response.json();
-
-        if (result.result === 'success') {
-            alert('Запис успішно відправлено!');
-            form.reset();
-            await updateBusyDates(); // Оновлюємо список зайнятих дат після відправки
-            updateCalendar(); // Оновити календар
-        } else if (result.result === 'full') {
-            alert('Всі слоти зайняті на обрану дату. Найближчий доступний час: ' + result.availableDate + ' ' + result.availableTime);
-        } else {
-            alert('Сталася помилка: ' + result.message);
-        }
-    } catch (error) {
-        console.error('Error!', error.message);
-    }
-});
-
-
-        // Функція для знаходження найближчої вільної дати
-        function findNextAvailableDate(startDate) {
-            let nextDate = new Date(startDate);
-            while (busyDates.some(busy => busy.date === nextDate.toLocaleDateString('uk-UA', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            }))) {
-                nextDate.setDate(nextDate.getDate() + 1);
-            }
-            return nextDate;
-        }
-    </script>
+    <script src="map.js"></script>
 </body>
 </html>
+

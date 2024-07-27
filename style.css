@@ -26,7 +26,6 @@ header {
 
 .yaktreba {
     padding-bottom: 1.4%;
-    padding-top: 0.3%;
 }
 
 .yaktreba img {
@@ -34,9 +33,9 @@ header {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1%;
-    width: 10%;
-    object-fit: contain;
+    width: 23vw;
     cursor: pointer;
+    height: 3.5vw;
 }
 
 nav {
@@ -47,7 +46,7 @@ nav {
 nav a {
     color: #000000;
     text-decoration: none;
-    font-size: 0.9vw;
+    font-size: 1.1vw;
     resize: both;
     overflow: auto;
 }
@@ -291,15 +290,7 @@ footer {
   
 .popular:hover {
     background-color: #333;
-  }
-
-.container-title {
-    text-align: center;
-    font-size: 3vw;
-    padding-top: 0;
-    padding-bottom: 1%;
 }
-
 
 .label {
     
@@ -385,38 +376,96 @@ video, iframe {
         max-width: 100%;
     }
 }
-.about-us {
-    background-color: rgb(255, 255, 255);
+
+
+.container-title {
+    text-align: center;
+    font-size: 2vw;
+    padding-top: 1%;
     padding-bottom: 0;
 }
 
 .title-new {
-    font-size: 1vw;
+    font-size: 0.8vw;
     text-align:center;
     padding: 2%;
     padding-top: 0;
     padding-bottom: 0;
 }
 
-.new-section {
+.about-section {
+    margin: 1%;
+    text-align: center;
+    padding-top: 0.5vw;
+    border-radius: 8px;
+}
+
+.about-section h2 {
+    font-size: 1.6vw;
+    color: #333;
+    margin-bottom: 3%;
+}
+
+.information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    text-align: center;
+    font-size: 2vw;
+}
+
+.info-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 20vw);
-    flex-direction:column;
-    width: 70%;
-    height: 100%;
-    align-items: center;
-    margin: auto;
+    gap: 1vw;
+    justify-items: center;
+}
+
+.info-item {
+    background-color: #f8bb15;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1vw;
+    width: 40%;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-item img {
+    max-width: 80px;
+    margin-bottom: 7%;
+}
+
+.info-item h3 {
+    font-size: 1vw;
+    color: #333;
+}
+
+.info-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
 }
 
 .general {
     text-align: center;
-    font-size: 1vw;
-    display: block;
+    font-size: 0.8vw;
 }
 
 .new-section img {
-    width: 50%;
+    width: 30%;
     height: 70%;
 }
 
@@ -428,10 +477,14 @@ video, iframe {
     padding-bottom: 4%;
 }
 
-.footer-column a {
-    margin-bottom: 1vw;
-    padding-top: 10%;
+.footer-column h3 {
+    font-size: 0.9vw;
 }
+
+.footer-column p, a {
+    font-size: 0.6vw;
+}
+
 
 .footer-column a:hover {
     cursor: pointer;

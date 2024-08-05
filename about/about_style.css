@@ -1,24 +1,112 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff9c4;
-    color: #333;
-    margin: 0;
+    font-family: "Open Sans";
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    display: grid;
+    justify-content:baseline;
+    align-items: center;
     padding: 0;
+    margin: 0;
+    resize: both;
+    overflow: auto;
 }
 
 header {
-    background-color: #fdd835;
-    padding: 20px;
-    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: rgb(252, 198, 50);
+    border-bottom: 0.01vw solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 0.5%;
 }
 
-header h1 {
+.vertical {
+    font-size: 0.7vw;
+    margin-top: 0.2vw;
+}
+
+.all-about {
+    border-top: 0.01vw solid rgba(0, 0, 0, 0.5);
+}
+
+.yaktreba {
+    padding-bottom: 1.4%;
+}
+
+.yaktreba img {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    width: 15vw;
+    cursor: pointer;
+    height: 2vw;
+}
+
+nav {
+    width: 65%;
+    margin: 0 auto;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.8vw;
+    resize: both;
+    overflow: auto;
+}
+  
+nav a:hover {
+    color: #636262;
+}
+  
+nav ul {
+    list-style: none;
     margin: 0;
-    color: #fff;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    position: relative;
+    padding: 0;
+}
+
+nav li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #ffc021;
+    padding: 0.5vw;
+    border: 1px solid #ddd;
+}
+
+nav li:hover ul {
+  display:block;
+  width: 250px;
+}
+
+nav li ul li a {
+  color: #000;
+
+}
+
+nav li ul li a:hover {
+  color: #666666;
+}
+
+.section {
+    z-index: 3;
 }
 
 .history-section {
-    padding: 20px;
+    padding: 1vw;
+    background: rgb(248, 187, 21);
 }
 
 .history-item {
@@ -40,12 +128,19 @@ header h1 {
     margin-bottom: 10px;
 }
 
+footer p {
+    margin: 0;
+}
+
 footer {
-    background-color: #fdd835;
-    text-align: center;
-    padding: 10px;
+    background-color: #333;
     color: #fff;
+    text-align: center;
+    clear: both;
+    font-size: large ;
     position: fixed;
-    bottom: 0;
     width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
 }

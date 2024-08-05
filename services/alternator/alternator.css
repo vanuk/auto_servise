@@ -1,12 +1,11 @@
 body {
-   
     background-color: rgba(248, 194, 46, 1.00); /* Змінив на білий фон */
-    margin: 0;
-    padding: 0;
-    color: #000;
-    line-height: 1.6;
-    font-family: 'Aqum two', sans-serif;
-    font-weight: bold;
+    font-family: "Open Sans";
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
     display: grid;
     justify-content:baseline;
     align-items: center;
@@ -17,18 +16,16 @@ body {
 }
 
 header {
-    
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
-    background-color: rgb(255, 196, 32);
+    background-color: rgb(252, 198, 50);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .vertical {
-    font-size: 0.8vw;
-    margin-top: 0%;
+    font-size: 0.7vw;
+    margin-top: 0.2vw;
 }
 
 .yaktreba {
@@ -40,19 +37,20 @@ header {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1%;
-    width: 23vw;
+    width: 15vw;
     cursor: pointer;
-    height: 3.5vw;
+    height: 2vw;
 }
+
 nav {
-    width: 75%;
+    width: 65%;
     margin: 0 auto;
 }
 
 nav a {
     color: #000000;
     text-decoration: none;
-    font-size: 1.1vw;
+    font-size: 0.9vw;
     resize: both;
     overflow: auto;
 }
@@ -97,13 +95,12 @@ nav li ul li a:hover {
   color: #666666;
 }
 
-
 .name {
-    background: linear-gradient(135deg, rgb(255, 196, 32) 0%, rgba(248, 194, 46, 1.00) 100%);
-    padding: 1vw;
-    margin-top: 8%;
+    background: linear-gradient(135deg, rgb(236, 173, 1) 0%, rgba(252, 198, 50, 0.8) 100%);
     text-align: center;
-    font-size: 1.5vw;
+    padding: 1vw;
+    margin: 0;
+    font-size: 2vw;
     font-weight: bold;
     color: #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -176,3 +173,34 @@ ul, ol {
     color: #000;
     font-weight: bold;
 }
+
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+      background: rgb(190, 151, 45);
+      border: 0px none #ffffff;
+      border-radius: 96px;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #e7cd35;
+  }
+  ::-webkit-scrollbar-track {
+    background: #666666;
+    border: 45px none #ffffff;
+    border-radius: 83px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #666666;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #333333;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }

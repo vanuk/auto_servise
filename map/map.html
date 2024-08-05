@@ -3,51 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Запис на автосервіс</title>
-    <link rel="stylesheet" href="map.css">
+    <title>Перегляд зображень</title>
+    <style>
+        #imageContainer {
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .image {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .main-image {
+            z-index: 2;
+            transform: scale(1.2);
+        }
+        .blurred-image {
+            filter: blur(5px);
+            opacity: 0.5;
+            z-index: 1;
+        }
+        .left {
+            left: -30%;
+        }
+        .right {
+            right: -30%;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            margin: 20px auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Запис на автосервіс</h1>
-        <form name="contact-form">
-            <label for="name">Ім'я:</label>
-            <input type="text" id="name" name="your-name" required>
-            
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" name="your-number" required>
-            
-            <label for="car">Марка автомобіля:</label>
-            <input type="text" id="car" name="your-car" required>
-            
-            <label for="date">Дата:</label>
-            <input type="date" id="date" name="date" required>
-            
-            <label for="time">Час:</label>
-            <select id="time" name="time" required>
-                <option value="09:00">09:00</option>
-                <option value="12:00">12:00</option>
-                <option value="15:00">15:00</option>
-            </select>
-            
-            <label for="message">Повідомлення:</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-            
-            <button type="submit">Записатися</button>
-            <div id="submissionMessage" style="margin-top: 10px; color: green;"></div>
-        </form>
-    </div>
+<div id="imageContainer">
+    <img id="prevImage" class="image blurred-image left" src="/photos/car_mechanic..jpg" alt="">
+    <img id="currentImage" class="image main-image" src="/photos/car_mechanic2..jpg" alt="">
+    <img id="nextImage" class="image blurred-image right" src="/photos/car_mechanic3..jpg" alt="">
+</div>
+<div class="button-container">
+    <button id="prev">Назад</button>
+    <button id="next">Вперед</button>
+</div>
 
-    <div class="calendar-container">
-        <div class="month-nav">
-            <button id="prevMonth">&#10094;</button>
-            <div class="month-title" id="monthTitle"></div>
-            <button id="nextMonth">&#10095;</button>
-        </div>
-        <div id="calendar"></div>
-        <div id="available-slots"></div>
-    </div>
+<script>
+    var counter = 0;
+    var srcArray = ["/photos/car_mechanic..jpg", "/photos/car_mechanic2..jpg", "/photos/car_mechanic3..jpg"];
 
-    <script src="map.js"></script>
+    function updateImages() {
+        var prevIndex = (counter - 1 + srcArray.length) % srcArray.length;
+        var nextIndex = (counter + 1) % srcArray.length;
+        document.getElementById("prevImage").src = srcArray[prevIndex];
+        document.getElementById("currentImage").src = srcArray[counter];
+        document.getElementById("nextImage").src = srcArray[nextIndex];
+    }
+
+    document.getElementById("prev").onclick = function() {
+        counter = (counter - 1 + srcArray.length) % srcArray.length;
+        updateImages();
+    }
+
+    document.getElementById("next").onclick = function() {
+        counter = (counter + 1) % srcArray.length;
+        updateImages();
+    }
+
+    updateImages();
+</script>
 </body>
 </html>
-

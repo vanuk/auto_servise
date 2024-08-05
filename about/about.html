@@ -4,13 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Історія Компанії</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="about_style.css">
 </head>
+<header>
+    <div class="yaktreba">
+      <img onclick="window.location.href='/main.html'" src="/photos/YakTreba 2.0.png" alt="">
+    </div>
+    <div>
+      <nav>
+        <ul>
+          <li><a href="#">Популярні послуги</a>
+            <ul>
+              <li><a href="services/alternator/alternator.html">Ремонт генераторама</a></li>
+              <li><a href="#">Ремонт стартера</a></li>
+              <li><a href="#">Ремонт компресора</a></li>
+              <li><a href="#">Монтаж демонтаж</a></li>
+              <li><a href="#">Мийка системи</a></li>
+              <li><a href="#">Заміна конденцера</a></li>
+              <li><a href="#">Заміна радіотара</a></li>
+              <li><a href="#">Заміна інтеркулера</a></li>
+              <li><a href="#">Ремонт требокондеціонування</a></li>
+              <li><a href="#">Аргоне зварювання</a></li>
+              <li><a href="#">Зонування салону</a></li>
+              <li><a href="#">Бактеріальна чистка</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <li><a href="#">Прайс</a>
+            <ul>
+              <li><a href="price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
+              <li><a href="#">Спеціальні пропозиції</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <li><a href="#">Про нас</a>
+            <ul>
+              <li><a href="about/about.html" id="about">Історія компанії</a></li>
+              <li><a href="#">Наша команда</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+         <!-- <li><a href="#">Спецпропозиції</a>
+            <ul>
+              <li><a href="#">Акції та знижки</a></li>
+              <li><a href="#">Спеціальні пропозиції для клієнтів</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+        -->
+          <li><a href="#">Відгуки</a>
+            <ul>
+              <li><a href="/review/review.html">Відгуки клієнтів</a></li>
+              <li><a href="#">Рекомендації</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <li><a href="#">Контакти</a>
+            <ul>
+              <li><a href="sended/email.html" id="sended">Контактна інформація</a></li>
+              <li><a href="#">Форма зворотного зв'язку</a></li>
+            </ul>
+          </li>
+          <p class="vertical">|</p>
+          <!-- Додамо пункт меню для переходу в магазин -->
+          <li><a href="shop/shop.html">Магазин</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
 <body>
-    <header>
-        <h1>Історія Нашої Компанії</h1>
-    </header>
-
     <section class="history-section">
         <article class="history-item">
             <h2>Наше Заснування</h2>
@@ -24,10 +87,9 @@
         </article>
         <!-- Додаткові етапи історії можна додати тут -->
     </section>
-
-    <footer>
-        <p>© 2024 Наша Компанія. Всі права захищені.</p>
-    </footer>
+    <footer class="under">
+        <p>&copy; 2023 YakTreba</p>
+      </footer>
 
     <script src="history_script.js"></script>
 </body>

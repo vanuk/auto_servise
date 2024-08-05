@@ -7,12 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@300&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <header>
   <div class="yaktreba">
-    <img onclick="window.location.href='main.html'" src="/photos/YakTreba 2.0.png" alt="">
+    <img onclick="window.location.href='/main.html'" src="/photos/YakTreba 2.0.png" alt="">
   </div>
   <div>
     <nav>
@@ -43,7 +42,7 @@
         <p class="vertical">|</p>
         <li><a href="#">Про нас</a>
           <ul>
-            <li><a href="about/about.html" id="about">Історія компанії</a></li>
+            <li><a href="about\about.html" id="about">Історія компанії</a></li>
             <li><a href="#">Наша команда</a></li>
           </ul>
         </li>
@@ -163,35 +162,51 @@
   <div class="about-section">
     <div class="info-grid">
         <div class="info-item">
-            <img src="path/to/icon1.png" alt="Оригінальні запчастини Bosch">
-            <h3>Оригінальні запчастини</h3>
+            <img src="photos/originals.jpg" alt="Оригінальні запчастини Bosch">
+            <p>Оригінальні запчастини</p>
         </div>
         <div class="info-item">
-            <img src="path/to/icon2.png" alt="Якісний ремонт">
-            <h3>Якісний ремонт</h3>
+            <img src="photos/yakist.jpg" alt="Якісний ремонт">
+            <p>Якісний ремонт</p>
         </div>
         <div class="info-item">
-            <img src="path/to/icon3.png" alt="Сервіс автомобілів різних брендів">
-            <h3>Сервіс автомобілів різних брендів</h3>
+            <img src="photos/cars-name.jpg" alt="Сервіс автомобілів різних брендів">
+            <p>Сервіс автомобілів різних брендів</p>
         </div>
         <div class="info-item">
-            <img src="path/to/icon4.png" alt="Широкий спектр послуг">
-            <h3>Широкий спектр послуг</h3>
+            <img src="photos/spektr.jpg" alt="Широкий спектр послуг">
+            <p>Широкий спектр послуг</p>
         </div>
         <div class="info-item">
-            <img src="path/to/icon5.png" alt="Гарантія на з/ч і послуги">
-            <h3>Гарантія на з/ч і послуги</h3>
+            <img src="photos/garentree.jpg" alt="Гарантія на з/ч і послуги">
+            <p>Гарантія на з/ч і послуги</p>
         </div>
         <div class="info-item">
-            <img src="path/to/icon6.png" alt="Європейський сервіс доступний кожному">
-            <h3>Європейський сервіс доступний кожному</h3>
-        </div>
-    </div>
-</div>
-</div>
+            <img src="photos/kojnomu.jpg" alt="Європейський сервіс доступний кожному">
+            <p>Європейський сервіс доступний кожному</p>
   </div>
+</div>
+</div>
+<div class="color">
+  <div class="gallery-text">
+    <p>ГАЛЕРЕЯ</p>
+  </div>
+  <div class="gallery">
+    <button id="prev">
+      <img src="photos/less than.png" alt="">
+    </button>
+    <div class="photos" id="imageContainer">
+      <img id="prevImage" class="image blurred-image left" src="/photos/car_mechanic..jpg" alt="">
+      <img id="currentImage" class="image main-image" src="/photos/car_mechanic2..jpg" alt="">
+      <img id="nextImage" class="image blurred-image right" src="/photos/car_mechanic3..jpg" alt="">
+    </div>
+    <button id="next">
+      <img src="photos/more than.png" alt="">
+    </button>
+  </div>
+</div>
   <div class="location">
-    <h1>ЯК ДО НАС ДІСТАТИСЬ</h1>
+    <p>ЯК ДО НАС ДІСТАТИСЬ</p>
   </div>
   <div class="container1">
     <div class="container-map">
@@ -210,69 +225,70 @@
         </section>
     </div>
 </div>
-<div class="container-footer">
-  <div class="contact-info">
-      <h2>ЗВ'ЯЖІТЬСЯ З НАМИ</h2>
-      <p>Якщо у вас виникла проблема з автомобілем або вам просто <br> потрібен ремонт, запишіться на прийом до нашої 
-        професійної <br> команди вже сьогодні!</p>
-      <p><strong>Адреса:</strong><br>33022 м.Рівне вул.Кострумська 0</p>
-      <p><strong>Графік роботи:</strong><br>Понеділок - П'ятниця: 09:00 - 19:00<br>Субота: вихідний<br>Неділя: вихідний</p>
-      <p><strong>Контакти:</strong><br>+38 (098) 765 43 21<br>email@gmail.com</p>
+
+  <div class="container-footer">
+    <div class="contact-info">
+        <h2>ЗВ'ЯЖІТЬСЯ З НАМИ</h2>
+        <p>Якщо у вас виникла проблема з автомобілем або вам просто <br> потрібен ремонт, запишіться на прийом до нашої 
+          професійної <br> команди вже сьогодні!</p>
+        <p><strong>Адреса:</strong><br>33022 м.Рівне вул.Кострумська 0</p>
+        <p><strong>Графік роботи:</strong><br>Понеділок - П'ятниця: 09:00 - 19:00<br>Субота: вихідний<br>Неділя: вихідний</p>
+        <p><strong>Контакти:</strong><br>+38 (098) 765 43 21<br>email@gmail.com</p>
+    </div>
+    <div class="form-wrapper">
+        <label for="fromName">Ім'я:</label>
+        <input type="text" id="fromName" name="fromName" required>
+        
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Номер телефону:</label>
+        <input type="text" id="phone" name="phone" required>
+        
+        <label for="message">Повідомлення:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit"  onclick="return sendEmail();">Відправити</button>
+    </div>
   </div>
-  <div class="form-wrapper">
-      <label for="fromName">Ім'я:</label>
-      <input type="text" id="fromName" name="fromName" required>
-      
-      <label for="email">Електронна пошта:</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="phone">Номер телефону:</label>
-      <input type="text" id="phone" name="phone" required>
-      
-      <label for="message">Повідомлення:</label>
-      <textarea id="message" name="message" required></textarea>
-      
-      <button type="submit"  onclick="return sendEmail();">Відправити</button>
-  </div>
-</div>
 
   <div class="all-about">
       <div class="yaktreba-footer">
         <div class="footer-column">
-          <h3>ЯК ТРЕБА</h3>
-          <p>ЯК ТРЕБА один з найкращих<br>автомобільних сервісів у м. Рівне</p>
+          <p>ЯК ТРЕБА</p>
+          <p style="font-size: 0.7vw;">ЯК ТРЕБА один з найкращих<br>автомобільних сервісів у м. Рівне</p>
       </div>
       <div class="footer-column">
-          <h3>Система охолодження</h3>
+          <p>Система охолодження</p>
           <a>Кондиціонер</a><br>
           <a>Команда</a><br>
           <a>Відгуки</a>
       </div>
       <div class="footer-column">
-          <h3>Заміна мастила та фільтрів</h3>
+          <p>Заміна мастила та фільтрів</p>
           <a>Про нас</a><br>
           <a>Галерея</a><br>
           <a>Блог</a>
       </div>
       <div class="footer-column">
-          <h3>Чистка систем</h3>
+          <p>Чистка систем</p>
           <a>Кондиціонування</a><br>
           <a>Спецпропозиції</a><br>
           <a>Контакти</a>
       </div>
       <div class="footer-column footer-social">
-          <h3>Слідкуйте за нами</h3>
-          <p>ПН - ПТ: 09:00 - 18:00<br>Субота: 9:00 - 15:00<br>Неділя - вихідний</p>
+          <p>Слідкуйте за нами</p>
+          <a>ПН - ПТ: 09:00 - 18:00<br>Субота: 9:00 - 15:00<br>Неділя - вихідний</a>
           <div class="social-m">
-            <img src="./photos/instagram.png" alt="">
             <img src="./photos/youtube.png" alt="">
+            <img src="./photos/instagram.png" alt="">
           </div>
       </div>
       </div>
   </div>
   </main>
   <footer class="under">
-    <p>&copy; 2023 AUTODIAGNOSTIC</p>
+    <p>&copy; 2023 YakTreba</p>
   </footer>
 </body>
 <script type="text/javascript"
@@ -286,4 +302,5 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 })();
 </script>
 <script src="/sended/email_code.js"></script>
+<script src="code.js"></script>
 </html>

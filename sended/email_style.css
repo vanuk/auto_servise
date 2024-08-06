@@ -121,12 +121,13 @@ nav li ul li a:hover {
 }
 
 .contact-info p:first-child {
-    font-size: 1vw;
+    font-size: 1.3vw;
     margin-bottom: 0.5vw;
 }
 
 .contact-info p {
     margin-bottom: 1vw;
+    font-size: 0.9vw;
 }
 
 .form-wrapper {
@@ -150,7 +151,7 @@ nav li ul li a:hover {
 .form-wrapper textarea {
     max-height: 4vw;
     min-height: 4vw; /* збільшуємо висоту текстового поля */
-    resize: vertical; /* дозволяємо змінювати висоту вручну */
+    resize: none; /* дозволяємо змінювати висоту вручну */
 }
 
 .form-wrapper button {

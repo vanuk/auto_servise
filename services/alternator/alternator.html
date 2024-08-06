@@ -16,7 +16,7 @@
       <ul>
         <li><a href="#">Популярні послуги</a>
           <ul>
-            <li><a href="services/alternator/alternator.html">Ремонт генераторама</a></li>
+            <li><a href="/services/alternator/alternator.html">Ремонт генераторама</a></li>
             <li><a href="#">Ремонт стартера</a></li>
             <li><a href="#">Ремонт компресора</a></li>
             <li><a href="#">Монтаж демонтаж</a></li>
@@ -33,14 +33,14 @@
         <p class="vertical">|</p>
         <li><a href="#">Прайс</a>
           <ul>
-            <li><a href="price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
+            <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
             <li><a href="#">Спеціальні пропозиції</a></li>
           </ul>
         </li>
         <p class="vertical">|</p>
         <li><a href="#">Про нас</a>
           <ul>
-            <li><a href="about/about.html" id="about">Історія компанії</a></li>
+            <li><a href="/about/about.html" id="about">Історія компанії</a></li>
             <li><a href="#">Наша команда</a></li>
           </ul>
         </li>
@@ -62,62 +62,81 @@
         <p class="vertical">|</p>
         <li><a href="#">Контакти</a>
           <ul>
-            <li><a href="sended/email.html" id="sended">Контактна інформація</a></li>
+            <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
             <li><a href="#">Форма зворотного зв'язку</a></li>
           </ul>
         </li>
         <p class="vertical">|</p>
         <!-- Додамо пункт меню для переходу в магазин -->
-        <li><a href="shop/shop.html">Магазин</a></li>
+        <li><a href="/shop/shop.html">Магазин</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <body>
-
 <div class="name">
     Все про Ремонт Генератора
 </div>
-
 <div class="container">
     <section class="section">
+      <div class="text">
         <h2>Що таке генератор і чому він важливий?</h2>
+      </div>
+      <div class="photo">
         <img src="/photos/alternator1.png" alt="Генератор">
         <p>Генератор – це пристрій, який перетворює механічну енергію в електричну. Він є невід'ємною частиною автомобіля, забезпечуючи електроживлення всіх систем та заряд акумулятора.</p>
+      </div>
     </section>
 
     <section class="section">
-        <h2>Симптоми несправності генератора</h2>
+      <div class="text">
+        <h2>Причини виходу генератора з ладу та симптоми несправності генератора</h2>
+      </div>
+      <div class="reasons">
         <ul>
             <li>Тусклі фари</li>
             <li>Попереджувальні сигнали на панелі приладів</li>
             <li>Проблеми із запуском двигуна</li>
             <li>Розряджений акумулятор</li>
         </ul>
+      </div>
     </section>
 
     <section class="section">
+      <div class="text">
         <h2>Процес ремонту генератора</h2>
+      </div>
+      <div class="generator">
         <img src="/photos/alternator.png" alt="Процес ремонту генератора">
-        <p>Наші фахівці проводять комплексний огляд генератора для виявлення несправностей. Основні етапи ремонту включають:</p>
-        <ol>
-            <li>Діагностика генератора</li>
-            <li>Заміна щіток і підшипників</li>
-            <li>Перевірка та заміна діодного моста</li>
-            <li>Тестування генератора після ремонту</li>
-        </ol>
+        <div class="information">
+          <p>Наші фахівці проводять комплексний огляд генератора для виявлення несправностей. Основні етапи ремонту включають:</p>
+            <ol>
+                <li>Діагностика генератора</li>
+                <li>Заміна щіток і підшипників</li>
+                <li>Перевірка та заміна діодного моста</li>
+                <li>Тестування генератора після ремонту</li>
+            </ol>
+        </div>
+      </div>
     </section>
-
     <section class="section">
+      <div class="text">
         <h2>Переваги нашого сервісу</h2>
+      </div>
+      <div class="reasons">
         <ul>
             <li>Висока якість обслуговування</li>
             <li>Досвідчені майстри</li>
             <li>Гарантія на виконані роботи</li>
             <li>Доступні ціни</li>
         </ul>
-        <a href="/sended/email.html" class="btn">Зв'яжіться з нами</a>
-        <a href="/sheet/sheet.html" class="btn">Записатися онлайн</a>
+      </div>
+      <div class="buttons">
+        <a href="/sheet/sheet.html">
+          <button class="btn">Зв'яжіться з нами</button>
+        </a>
+        <button id="openModalBtn" class="btn">Записатися</button>
+      </div>
     </section>
 
     <section class="section">
@@ -128,7 +147,55 @@
             <p><span class="highlight">Адреса:</span> вул. Ремонтна, 123, Київ, Україна</p>
         </div>
     </section>
+
+<!-- Модальне вікно -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="container-form">
+      <h1>Запис на автосервіс</h1>
+      <form name="contact-form">
+          <label for="name">Ім'я:</label>
+          <input type="text" id="name" name="your-name" required>
+          
+          <label for="phone">Телефон:</label>
+          <input type="text" id="phone" name="your-number" required>
+          
+          <label for="car">Марка автомобіля:</label>
+          <input type="text" id="car" name="your-car" required>
+          
+          <label for="date">Дата:</label>
+          <input type="date" id="date" name="date" required>
+          
+          <label for="time">Час:</label>
+          <select id="time" name="time" required>
+              <option value="09:00">09:00</option>
+              <option value="12:00">12:00</option>
+              <option value="15:00">15:00</option>
+          </select>
+          
+          <label for="message">Повідомлення:</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+          
+          <div id="submissionMessage" style="margin-top: 10px; color: green;"></div>
+        </form>
+      </div>
+      
+      <button type="submit">Записатися</button>
+      <div class="calendar-container">
+        <div class="month-nav">
+          <button id="prevMonth">&#10094;</button>
+          <div class="month-title" id="monthTitle"></div>
+          <button id="nextMonth">&#10095;</button>
+        </div>
+        <div id="calendar"></div>
+        <div id="available-slots"></div>
+      </div>
+    </div>
 </div>
 
+</div>
 </body>
+<script src="script22.js"></script>
+<script src="sheet.js"></script>
 </html>

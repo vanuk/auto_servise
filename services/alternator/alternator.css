@@ -56,10 +56,10 @@ header {
   nav a {
     color: #000000;
     text-decoration: none;
-    font-size: 0.8vw;
+    font-size: 18px;
     resize: both;
     overflow: auto;
-  }
+}
   
   nav a:hover {
     color: #636262;
@@ -216,8 +216,9 @@ ul, ol {
 }
 
 ::-webkit-scrollbar {
-    width: 13px;
-    height: 13px;
+    width: 0.6vw;
+    height: 0.6vw;
+    position: fixed;
   }
   ::-webkit-scrollbar-button {
     width: 0px;

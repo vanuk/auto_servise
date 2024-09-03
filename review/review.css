@@ -1,4 +1,4 @@
-body {
+body {  
     font-family: "Open Sans";
     font-optical-sizing: auto;
     font-weight: 800;
@@ -12,9 +12,11 @@ body {
     margin: 0;
     resize: both;
     overflow: auto;
+    background-color: rgb(252, 198, 50);
 }
 
 header {
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,12 +27,8 @@ header {
 }
 
 .vertical {
-    font-size: 0.7vw;
-    margin-top: 0.2vw;
-}
-
-.all-about {
-    border-top: 0.01vw solid rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    margin-top: 0.1vw;
 }
 
 .yaktreba {
@@ -55,7 +53,7 @@ nav {
 nav a {
     color: #000000;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     resize: both;
     overflow: auto;
 }
@@ -82,7 +80,7 @@ nav li ul {
     position: absolute;
     left: 0;
     background-color: #ffc021;
-    padding: 0.5vw;
+    padding: 10px;
     border: 1px solid #ddd;
 }
 

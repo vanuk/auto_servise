@@ -16,6 +16,7 @@ body {
 }
 
 header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,12 +27,8 @@ header {
 }
 
 .vertical {
-    font-size: 0.7vw;
-    margin-top: 0.2vw;
-}
-
-.all-about {
-    border-top: 0.01vw solid rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    margin-top: 0.1vw;
 }
 
 .yaktreba {
@@ -56,7 +53,7 @@ nav {
 nav a {
     color: #000000;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     resize: both;
     overflow: auto;
 }
@@ -83,7 +80,7 @@ nav li ul {
     position: absolute;
     left: 0;
     background-color: #ffc021;
-    padding: 0.5vw;
+    padding: 10px;
     border: 1px solid #ddd;
 }
 
@@ -107,9 +104,9 @@ nav li ul li a:hover {
     align-items: flex-start;
     width: 70%;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 10%;
     background-color: rgb(250, 189, 22);
-    padding: 1vw;
+    padding: 2vw;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap; /* Додаємо для підлаштування макету */

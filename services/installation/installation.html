@@ -3,123 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Монтаж та Демонтаж</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <title>Монтаж та демонтаж</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Quicksand:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="installation.css">
 </head>
 <header>
-    <div class="yaktreba">
-        <img onclick="window.location.href='main.html'" src="/photos/YakTreba 2.0.png" alt="">
-    </div>
-    <div>
-        <nav>
-            <ul>
-                <li><a href="#">Популярні послуги</a>
-                    <ul>
-                        <li><a href="/services/alternator/alternator.html">Ремонт генераторама</a></li>
-                        <li><a href="/services/starter_new/started.html">Ремонт стартера</a></li>
-                        <li><a href="/services/compressor/compressor.html">Ремонт компресора</a></li>
-                        <li><a href="/services/installation/installation.html">Монтаж демонтаж</a></li>
-                        <li><a href="/services/wash_system/wash.html">Мийка системи</a></li>
-                        <li><a href="/services/replace_condition/condition.html">Заміна конденцера</a></li>
-                        <li><a href="/services/replace_radiator/radiator.html">Заміна радіотара</a></li>
-                        <li><a href="/services/replace_intercooler/intercooler.html">Заміна інтеркулера</a></li>
-                        <li><a href="">Ремонт требокондеціонування</a></li>
-                        <li><a href="#">Аргоне зварювання</a></li>
-                        <li><a href="#">Зонування салону</a></li>
-                        <li><a href="/services/zoning_salon/salon.html">Бактеріальна чистка</a></li>
-                    </ul>
-                </li>
-                <p class="vertical">|</p>
-                <li><a href="#">Прайс</a>
-                    <ul>
-                        <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
-                        <li><a href="#">Спеціальні пропозиції</a></li>
-                    </ul>
-                </li>
-                <p class="vertical">|</p>
-                <li><a href="#">Про нас</a>
-                    <ul>
-                        <li><a href="/about/about.html" id="about">Історія компанії</a></li>
-                        <li><a href="#">Наша команда</a></li>
-                    </ul>
-                </li>
-                <p class="vertical">|</p>
-                <li><a href="#">Відгуки</a>
-                    <ul>
-                        <li><a href="/review/review.html">Відгуки клієнтів</a></li>
-                        <li><a href="#">Рекомендації</a></li>
-                    </ul>
-                </li>
-                <p class="vertical">|</p>
-                <li><a href="#">Контакти</a>
-                    <ul>
-                        <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
-                        <li><a href="#">Форма зворотного зв'язку</a></li>
-                    </ul>
-                </li>
-                <p class="vertical">|</p>
-                <li><a href="/shop/shop.html">Магазин</a></li>
-            </ul>
-        </nav>
-    </div>
+  <div class="yaktreba">
+    <img onclick="window.location.href='/main.html'" src="/photos/YakTreba 2.0.png" alt="">
+  </div>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="#">Популярні послуги</a>
+          <ul>
+              <li><a href="/services/alternator/alternator.html">Ремонт генераторама</a></li>
+              <li><a href="/services/starter_new/started.html">Ремонт стартера</a></li>
+              <li><a href="/services/compressor/compressor.html">Ремонт компресора</a></li>
+              <li><a href="/services/installation/installation.html">Монтаж демонтаж</a></li>
+              <li><a href="/services/wash_system/wash.html">Мийка системи</a></li>
+              <li><a href="/services/replace_condition/condition.html">Заміна конденцера</a></li>
+              <li><a href="/services/replace_radiator/radiator.html">Заміна радіотара</a></li>
+              <li><a href="/services/replace_intercooler/intercooler.html">Заміна інтеркулера</a></li>
+              <li><a href="">Ремонт требокондеціонування</a></li>
+              <li><a href="/services/weld/weld.html">Аргоне зварювання</a></li>
+              <li><a href="/services/zoning_salon/salon.html">Зонування салону</a></li>
+              <li><a href="/services/bacterial_clean/clean.html">Бактеріальна чистка</a></li>
+          </ul>
+        </li>
+        <p class="vertical">|</p>
+        <li><a href="#">Прайс</a>
+          <ul>
+            <li><a href="/price/price.html" id="price-list-link">Прайс-лист на послуги</a></li>
+            <li><a href="#">Спеціальні пропозиції</a></li>
+          </ul>
+        </li>
+        <p class="vertical">|</p>
+        <li><a href="#">Про нас</a>
+          <ul>
+            <li><a href="/about/about.html" id="about">Історія компанії</a></li>
+            <li><a href="#">Наша команда</a></li>
+          </ul>
+        </li>
+        <p class="vertical">|</p>
+       <!-- <li><a href="#">Спецпропозиції</a>
+          <ul>
+            <li><a href="#">Акції та знижки</a></li>
+            <li><a href="#">Спеціальні пропозиції для клієнтів</a></li>
+          </ul>
+        </li>
+        <p class="vertical">|</p>
+      -->
+        <li><a href="#">Відгуки</a>
+          <ul>
+            <li><a href="/review/review.html">Відгуки клієнтів</a></li>
+            <li><a href="#">Рекомендації</a></li>
+          </ul>
+        </li>
+        <p class="vertical">|</p>
+        <li><a href="#">Контакти</a>
+          <ul>
+            <li><a href="/sended/email.html" id="sended">Контактна інформація</a></li>
+            <li><a href="#">Форма зворотного зв'язку</a></li>
+          </ul>
+        </li>
+        <p class="vertical">|</p>
+        <!-- Додамо пункт меню для переходу в магазин -->
+        <li><a href="/shop/shop.html">Магазин</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 <body>
-   
-<div class="name">
-    Все про Монтаж та Демонтаж
-</div>
+    <div class="name">
+        Монтаж та демонтаж
+      </div>
+      <div class="container">
+        <div class="top-section">
+            <div class="left">
+                <img src="/photos/remont1.jpg" alt="Auto Diagnostics" class="top-image">
+            </div>
+            <div class="right">
+                <p class="top-text">
+                       <span class="bold">Монтаж і демонтаж</span> є ключовими процесами, які включають встановлення, заміну та видалення різних компонентів і систем автомобіля.<br><br>
+                        1. Монтаж
+                        Монтаж включає встановлення або заміну компонентів автомобіля. Це може бути як встановлення нових деталей, так і заміна старих на нові.
 
-<div class="container">
-    <section class="section">
-        <h2>Що таке монтаж та демонтаж і чому вони важливі?</h2>
-        <img src="/photos/installation.png" alt="Монтаж та демонтаж">
-        <p>Монтаж та демонтаж – це процеси, які забезпечують установку та зняття компонентів автомобіля, включаючи системи кондиціонування, двигуни та інші елементи.</p>
-    </section>
-
-    <section class="section">
-        <h2>Симптоми потреби в монтажі чи демонтажі</h2>
-        <ul>
-            <li>Необхідність заміни старих компонентів</li>
-            <li>Встановлення нових систем</li>
-            <li>Проблеми з функціонуванням існуючих елементів</li>
-            <li>Вимоги до модернізації автомобіля</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>Процес монтажу та демонтажу</h2>
-        <img src="/photos/installation_process.png" alt="Процес монтажу та демонтажу">
-        <p>Наші фахівці виконують монтаж та демонтаж з урахуванням усіх норм безпеки та якості. Основні етапи включають:</p>
-        <ol>
-            <li>Оцінка стану компонентів</li>
-            <li>Зняття старих елементів</li>
-            <li>Установка нових компонентів</li>
-            <li>Перевірка роботи системи після монтажу</li>
-        </ol>
-    </section>
-
-    <section class="section">
-        <h2>Переваги нашого сервісу</h2>
-        <ul>
-            <li>Висока якість обслуговування</li>
-            <li>Досвідчені майстри</li>
-            <li>Гарантія на виконані роботи</li>
-            <li>Доступні ціни</li>
-        </ul>
-        <a href="/sended/email.html" class="btn">Зв'яжіться з нами</a>
-        <a href="/sheet/sheet.html" class="btn">Записатися онлайн</a>
-    </section>
-
-    <section class="section">
-        <h2>Зв'яжіться з нами</h2>
-        <div class="contact-info">
-            <p><span class="highlight">Телефон:</span> +38 (123) 456-7890</p>
-            <p><span class="highlight">Email:</span> info@repairservice.ua</p>
-            <p><span class="highlight">Адреса:</span> вул. Ремонтна, 123, Київ, Україна</p>
+                        Основні етапи монтажу:<br><br>
+                        Підготовка: Перед монтажем необхідно підготувати робоче місце та інструменти. Також перевіряють відповідність деталей, що будуть встановлені, специфікаціям автомобіля.<br><br>
+                        Зняття старих компонентів: Якщо йдеться про заміну, спочатку необхідно демонтувати старі деталі. Це може включати видалення кріплень, болтів, роз'ємів та інших елементів, які утримують деталь.<br><br>
+                        Очищення та підготовка місця установки: Перед монтажем нових деталей місце установки очищається від бруду, іржі та залишків старих матеріалів.<br><br>
+                        Встановлення нового компонента: Новий компонент встановлюється на місце, закріплюється за допомогою необхідних кріплень, болтів або інших елементів.<br><br>
+                        Перевірка: Після монтажу компонент перевіряється на правильність установки, роботу та відсутність протікань, люфтів чи інших дефектів.<br><br>
+                </p>
+            </div>
         </div>
-    </section>
-</div>
-
+        <div class="bottom-section">
+            <div class="left">
+                <p class="bottom-text">
+                  <span class="bold">2. Демонтаж</span><br><br>
+                  Демонтаж – це процес видалення компонентів з автомобіля. Він може бути необхідний для заміни зношених деталей, проведення ремонту або підготовки автомобіля до утилізації.<br><br>
+                  
+                  Основні етапи демонтажу:<br><br>
+                  Підготовка: Як і в монтажі, необхідно підготувати інструменти та робоче місце.<br><br>
+                  Відключення систем: Перед демонтажем важливо відключити або знеструмити відповідні системи. Наприклад, перед зняттям акумулятора відключають живлення.<br><br>
+                  Зняття компонентів: Компоненти знімаються шляхом видалення кріплень, від'єднання шлангів, проводів та інших елементів, які утримують деталь.<br><br>
+                  Оцінка стану: Після зняття деталі її стан оцінюється для визначення можливості ремонту або утилізації.<br><br>
+                  Зберігання або утилізація: Якщо деталь ще придатна для використання, її зберігають для подальшого монтажу або продажу. У разі непрацездатності деталь утилізують відповідно до правил.<br><br>
+                </p>
+            </div>
+            <div class="right">
+                <img src="/photos/remont2.jpg" alt="Mechanic Working" class="bottom-image">
+            </div>
+        </div>
+      </div>
+      <div class="pad">
+        <div class="content1">
+          <div class="text1">
+              <h1>За всіма питаннями надсилайте зворотню форму зв'язку і з Вами зв'яжуться найближчим часом!</h1>
+              <button onclick="window.location.href='/sended/email.html'">Записатись</button>
+          </div>
+        </div>
+      </div>
+      <div class="all-about">
+        <div class="yaktreba-footer">
+          <div class="footer-column">
+            <p>ЯК ТРЕБА</p>
+            <p style="font-size: 0.7vw;">ЯК ТРЕБА один з найкращих<br>автомобільних сервісів у м. Рівне</p>
+        </div>
+        <div class="footer-column">
+            <p>Система охолодження</p>
+            <a>Кондиціонер</a><br>
+            <a>Команда</a><br>
+            <a>Відгуки</a>
+        </div>
+        <div class="footer-column">
+            <p>Заміна мастила та фільтрів</p>
+            <a>Про нас</a><br>
+            <a>Галерея</a><br>
+            <a>Блог</a>
+        </div>
+        <div class="footer-column">
+            <p>Чистка систем</p>
+            <a>Кондиціонування</a><br>
+            <a>Спецпропозиції</a><br>
+            <a>Контакти</a>
+        </div>
+        <div class="footer-column footer-social">
+            <p>Слідкуйте за нами</p>
+            <a>ПН - ПТ: 09:00 - 18:00<br>Субота: 9:00 - 15:00<br>Неділя - вихідний</a>
+            <div class="social-m">
+              <img src="./photos/youtube.png" alt="">
+              <img src="./photos/instagram.png" alt="">
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
 </html>
